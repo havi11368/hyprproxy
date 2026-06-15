@@ -1,7 +1,7 @@
 {
   "name": "hyprweb",
   "version": "1.0.0",
-  "description": "like hyprland, but for the web",
+  "description": "something similar to hyprland, but for the web",
   "license": "ISC",
   "author": "havi11368",
   "type": "commonjs",

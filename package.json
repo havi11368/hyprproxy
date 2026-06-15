@@ -1,0 +1,12 @@
+{
+  "name": "hyprweb",
+  "version": "1.0.0",
+  "description": "like hyprland, but for the web",
+  "license": "ISC",
+  "author": "havi11368",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

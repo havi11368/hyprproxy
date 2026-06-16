@@ -5,6 +5,7 @@ const scramjet = new ScramjetController({
 	files: {
 		wasm: "/scram/scramjet.wasm",
 		all: "/scram/scramjet.all.js",
+        sync: "/scram/scramjet.sync.js",
 	},
 });
 scramjet.init();
@@ -23,7 +24,7 @@ async function setTransport(transportsel) {
     await connection.setTransport("/bareasmodule/index.mjs", [ bareUrl ]);
   }
 }
-setTransport(localStorage.getItem('transport') || "epoxy")
+setTransport("epoxy")
 
 const sjEncode = scramjet.encodeUrl.bind(scramjet);
 

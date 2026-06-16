@@ -11,13 +11,17 @@ import { fileURLToPath } from "url";
 import { join } from "node:path";
 import { hostname } from "node:os";
 import wisp from "wisp-server-node"
+import cors from 'cors';
 
 const server = createServer();
 const bare = createBareServer("/bare/");
 const publicPath = fileURLToPath(new URL("./src/", import.meta.url));
 const app = express(server);
 // Load our publicPath first and prioritize it over UV.
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(publicPath));
+
 // Load vendor files last.
 // The vendor's uv.config.js won't conflict with our uv.config.js inside the publicPath directory.
 app.use("/scram/", express.static(scramjetPath));
@@ -25,12 +29,7 @@ app.use("/epoxy/", express.static(epoxyPath));
 app.use("/libcurl/", express.static(libcurlPath));
 app.use("/bareasmodule/", express.static(bareModulePath));
 app.use("/baremux/", express.static(baremuxPath));
-
-// Error for everything else
-app.use((req, res) => {
-  res.status(404);
-  res.sendFile(join(publicPath, "404.html"));
-});
+app.use(cors());
 
 server.on("request", (req, res) => {
   if (bare.shouldRoute(req)) {
@@ -52,6 +51,12 @@ server.on("upgrade", (req, socket, head) => {
 		socket.end();
 	  }
   }
+});
+
+// Error for everything else
+app.use((req, res) => {
+  res.status(404);
+  res.sendFile(join(publicPath, "404.html"));
 });
 
 let port = parseInt(process.env.PORT || "");
@@ -79,6 +84,7 @@ process.on("SIGTERM", shutdown);
 function shutdown() {
   console.log("SIGTERM signal received: closing HTTP server");
   server.close();
+  bare.close();
   process.exit(0);
 }
 

@@ -9,16 +9,16 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@mercuryworkshop/bare-as-module3": "^2.2.5",
-    "@mercuryworkshop/bare-mux": "^2.1.9",
-    "@mercuryworkshop/epoxy-transport": "^2.1.27",
-    "@mercuryworkshop/libcurl-transport": "^1.4.0",
+    "@mercuryworkshop/bare-as-module3": "2.2.5",
+    "@mercuryworkshop/bare-mux": "2.1.7",
+    "@mercuryworkshop/epoxy-transport": "2.1.27",
+    "@mercuryworkshop/libcurl-transport": "1.4.0",
     "@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-2.0.67-alpha.1.tgz",
-    "@tomphttp/bare-server-node": "^2.0.6",
-    "express": "^5.2.1",
-    "path": "^0.12.7",
-    "pm2": "^7.0.1",
-    "wisp-server-node": "^1.1.8"
+    "@tomphttp/bare-server-node": "2.0.5",
+    "cors": "2.8.5",
+    "express": "4.19.2",
+    "pm2": "7.0.1",
+    "wisp-server-node": "1.1.7"
   },
   "allowScripts": {
     "bufferutil@4.1.0": true,

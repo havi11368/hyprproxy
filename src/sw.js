@@ -1,3 +1,5 @@
+//Taken from scramjet example
+
 importScripts('./scram/scramjet.all.js');
 
 const { ScramjetServiceWorker } = $scramjetLoadWorker();
@@ -14,5 +16,3 @@ async function handleRequest(event) {
 self.addEventListener('fetch', (event) => {
   event.respondWith(handleRequest(event));
 });
-
-//Taken from scramjet example

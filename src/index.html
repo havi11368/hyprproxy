@@ -6,17 +6,9 @@
   <link rel="stylesheet" href="stylesheet.css">
   <title>HyprWeb</title>
   <script src="/scram/scramjet.all.js"></script>
-	<script src="baremux/index.js" defer></script>
-	<script src="epoxy/index.js" defer></script>
-	<script src="register-sw.js" async></script>
-    <script>
-    if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("/sw.js", {
-        });
-      });
-    }
-  </script>
+	<script src="/baremux/index.js" defer></script>
+	<script src="/epoxy/index.js" defer></script>
+	<script src="register-sw.js" defer></script>
 </head>
 <body>
     <div id="tabBar" class="justified">

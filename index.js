@@ -25,10 +25,10 @@ app.use(express.static(publicPath));
 // Load vendor files last.
 // The vendor's uv.config.js won't conflict with our uv.config.js inside the publicPath directory.
 app.use("/scram/", express.static(scramjetPath));
+app.use("/baremux/", express.static(baremuxPath));
 app.use("/epoxy/", express.static(epoxyPath));
 app.use("/libcurl/", express.static(libcurlPath));
 app.use("/bareasmodule/", express.static(bareModulePath));
-app.use("/baremux/", express.static(baremuxPath));
 app.use(cors());
 
 server.on("request", (req, res) => {

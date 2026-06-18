@@ -34,6 +34,9 @@ p {
   backdrop-filter: blur(10px);
   border-radius: 5px;
   outline: 2px solid var(--secondary-color);
+  width: 500px;
+  height: 150px;
+  opacity: 1;
 }
 
 .justified {
@@ -111,6 +114,49 @@ button {
     width: 100;
   }
 }
+
+@keyframes sizeIn {
+  0% {
+    transform: scale(.5);
+    opacity: 0;
+  }
+
+  70% {
+    opacity: 0;
+  }
+
+  100% {
+    left: 0%;
+	  top: 0%;
+    transform: scale(1);
+    opacity: 1;
+    width: 100%;
+  }
+}
+
+@keyframes sizeOut {
+  0% {
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  70% {
+    transform: scale(.95) translate(-53%, -53%);
+    height: calc(100% - 40px);
+    margin-top: 12px;
+    width: calc(100% - 10px);
+    opacity: 1;
+  }
+
+  100% {
+    height: calc(100% - 10px);
+    width: calc(100% - 10px);
+    height: calc(100% - 40px);
+    transform: scale(1) translate(-50%, -50%);
+    opacity: 0;
+  }
+}
+
 
 #info {
   display: flex;

@@ -1,12 +1,16 @@
 function addWindowTab() {
-    if(document.getElementById("greeting").style.display == "block") {
-      document.getElementById("greeting").style.display = "none"
-    }
     const windowTab = document.createElement("div");
     windowTab.id = "windowTab"
     windowTab.innerHTML = `<iframe class="frame" src="./search.html"></iframe>`
     document.querySelector("#windowContainer").appendChild(windowTab);
-    windowTab.style.animation = ".4s ease-out 0s 1 slideIn"
+    if (window.getComputedStyle(document.getElementById("greeting")).opacity === "1") {
+      document.getElementById("greeting").style.animation = ".4s ease-out 0s 1 sizeOut";
+      document.getElementById("greeting").style.opacity = "0";
+      windowTab.style.animation = ".4s ease-out 0s 1 sizeIn";
+    } else {
+      windowTab.style.animation = ".4s ease-out 0s 1 slideIn";
+    }
+    
 }
 
 

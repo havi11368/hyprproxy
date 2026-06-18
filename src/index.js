@@ -1,7 +1,13 @@
 function addWindowTab() {
     const windowTab = document.createElement("div");
     windowTab.id = "windowTab"
-    windowTab.innerHTML = `<iframe class="frame" src="./search.html"></iframe>`
+    windowTab.innerHTML = `<div class="windowHeader justified">
+    <div class="infoHolder">
+    <img id="icon" src="/images/icon.png"></img>
+    <h3 id="title">New Window</h3>
+    </div>
+    </div>
+    <iframe class="frame" src="./search.html"></iframe>`
     document.querySelector("#windowContainer").appendChild(windowTab);
     if (window.getComputedStyle(document.getElementById("greeting")).opacity === "1") {
       document.getElementById("greeting").style.animation = ".4s ease-out 0s 1 sizeOut";

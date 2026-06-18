@@ -83,7 +83,7 @@ button {
 #windowTab {
   transition: all .4s;
   margin: 5px;
-  display: flex;
+  display: block;
   width: 100%;
   height: calc(100% - 23px);
   backdrop-filter: blur(10px);
@@ -93,8 +93,9 @@ button {
 
 .frame {
   width: 100%;
-  height: 100%;
+  height: calc(100% - 25px);
   border: none;
+  border-radius: 5px;
 }
 
 @keyframes slideIn {
@@ -176,4 +177,18 @@ button {
   background: none;
   border: none;
   width: 40vw;
+}
+
+.windowHeader {
+  justify-content:space-between !important;
+  height:25px
+}
+
+.infoHolder {
+  display: flex;
+  height:25px
+}
+
+#icon {
+  height: 23px;
 }

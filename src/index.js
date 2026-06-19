@@ -8,7 +8,7 @@ function addWindowTab() {
     </div>
     <button id="closeButton">Close</button>
     </div>
-    <iframe class="frame" src="./search.html"></iframe>`
+    <iframe class="frame" id="tabFrame" src="./search.html"></iframe>`
     document.querySelector("#windowContainer").appendChild(windowTab);
     if (window.getComputedStyle(document.getElementById("greeting")).opacity === "1") {
       document.getElementById("greeting").style.animation = ".4s ease-out 0s 1 sizeOut";
@@ -18,6 +18,10 @@ function addWindowTab() {
     } else {
       windowTab.style.animation = ".4s ease-out 0s 1 slideIn";
     }
+    windowTab.querySelector("#tabFrame").addEventListener("load", (e) => {
+      windowTab.querySelector("#title").innerHTML = windowTab.querySelector("#tabFrame").contentDocument.title
+      windowTab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
+    })
     windowTab.querySelector("#closeButton").addEventListener("click", (e) => {
       windowTab.remove();
     })

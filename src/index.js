@@ -22,8 +22,10 @@ function addWindowTab() {
       document.getElementById("greeting").style.opacity = "0";
       document.getElementById("greeting").style.zIndex = "-1";
       windowTab.style.animation = ".4s linear 0s 1 sizeIn";
+      tab.style.animation = ".2s linear 0s 1 slideUp";
     } else {
       windowTab.style.animation = ".4s ease-out 0s 1 slideIn";
+      tab.style.animation = ".2s linear 0s 1 slideUp";
     }
     windowTab.querySelector("#tabFrame").addEventListener("load", (e) => {
       windowTab.querySelector("#title").innerHTML = windowTab.querySelector("#tabFrame").contentDocument.title

@@ -190,6 +190,25 @@ button {
   }
 }
 
+@keyframes slideUp {
+  0% {
+    margin-top: 40px
+  }
+
+  50% {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  70% {
+    margin-top: 0px;
+    margin-bottom: 10px;
+  }
+  100% {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+}
 
 #info {
   display: flex;
@@ -226,6 +245,7 @@ button {
 
 #icon {
   height: 23px;
+  min-width: 23px;
 }
 
 a {
@@ -259,6 +279,7 @@ select {
   outline: 1px solid var(--primary-color);
   margin: 3px;
   height: 23px;
+  width: 23px;
 }
 
 #tab img {

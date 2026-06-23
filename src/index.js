@@ -11,23 +11,31 @@ function addWindowTab() {
     </div>
     <iframe class="frame" id="tabFrame" src="./search.html"></iframe>`
     document.querySelector("#windowContainer").appendChild(windowTab);
+
+    const tab = document.createElement("div");
+    tab.id = "tab"
+    tab.innerHTML = `<img id="icon" src="/images/icon.png"></img>`
+    document.querySelector("#apps").appendChild(tab);
+
     if (window.getComputedStyle(document.getElementById("greeting")).opacity === "1") {
-      document.getElementById("greeting").style.animation = ".4s ease-out 0s 1 sizeOut";
+      document.getElementById("greeting").style.animation = ".4s linear 0s 1 sizeOut";
       document.getElementById("greeting").style.opacity = "0";
       document.getElementById("greeting").style.zIndex = "-1";
-      windowTab.style.animation = ".4s ease-out 0s 1 sizeIn";
+      windowTab.style.animation = ".4s linear 0s 1 sizeIn";
     } else {
       windowTab.style.animation = ".4s ease-out 0s 1 slideIn";
     }
     windowTab.querySelector("#tabFrame").addEventListener("load", (e) => {
       windowTab.querySelector("#title").innerHTML = windowTab.querySelector("#tabFrame").contentDocument.title
       windowTab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
+      tab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
       windowTab.querySelector("#tabFrame").contentWindow.document.addEventListener('mousedown', () => {
         windowTab.focus();
     });
     })
     windowTab.querySelector("#closeButton").addEventListener("click", (e) => {
       windowTab.remove();
+      tab.remove();
     })
 }
 

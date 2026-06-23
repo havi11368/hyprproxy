@@ -83,8 +83,12 @@ button {
   backdrop-filter: blur(10px);
   width: 100%;
   height: 30px;
-  justify-content:space-between !important;
+  justify-content:center !important;
   bottom: 0px;
+}
+
+#apps {
+  justify-self: center;
 }
 
 #windowContainer {
@@ -106,10 +110,6 @@ button {
   height: calc(100% - 23px);
   backdrop-filter: blur(10px);
   border-radius: 5px;
-  outline: 2px solid #ffffff9d;
-}
-
-#windowTab:focus-within {
   outline: 2px solid var(--primary-color);
 }
 
@@ -140,12 +140,14 @@ button {
 
 @keyframes sizeIn {
   0% {
-    transform: scale(.5);
+    transform: scale(.6);
     opacity: 0;
   }
 
-  70% {
+  50% {
+    outline: 3px solid var(--primary-color);
     opacity: 0;
+    border-radius: 10px;
   }
 
   100% {
@@ -154,6 +156,8 @@ button {
     transform: scale(1);
     opacity: 1;
     width: 100%;
+    border-radius: 5px;
+    outline: 2px solid var(--primary-color);
   }
 }
 
@@ -163,20 +167,25 @@ button {
     opacity: 1;
   }
 
-  70% {
-    transform: scale(.95) translate(-53%, -53%);
-    height: calc(100% - 40px);
-    margin-top: 12px;
+  50% {
+    border-radius: 10px;
+    outline: 3px solid var(--primary-color);
+    transform: scale(.8) translate(-62%, -62%);
+    height: calc(100% - 70px);
+    margin-top: -2px;
     width: calc(100% - 10px);
     opacity: 1;
+    display: block;
   }
 
   100% {
+    outline: 2px solid var(--primary-color);
     height: calc(100% - 10px);
     width: calc(100% - 10px);
-    height: calc(100% - 40px);
+    height: calc(100% - 70px);
     transform: scale(1) translate(-50%, -50%);
     opacity: 0;
+    border-radius: 5px;
   }
 }
 
@@ -189,6 +198,9 @@ button {
 }
 
 #omnibox {
+  justify-self: center;
+  align-items: center;
+  align-self: center;
   outline: 1px solid var(--secondary-color);
   border-radius: 5px;
 }
@@ -238,5 +250,16 @@ select {
   background: none;
   color: #fff;
   outline: 1px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+#tab {
+  border-radius: 5px;
+  outline: 1px solid var(--primary-color);
+  margin: 3px;
+  height: 23px;
+}
+
+#tab img {
   border-radius: 5px;
 }

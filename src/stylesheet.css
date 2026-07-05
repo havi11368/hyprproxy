@@ -256,6 +256,7 @@ a {
 }
 
 a:hover {
+  transition: .4s all;
   font-weight: 700;
   text-decoration: underline;
 }
@@ -274,6 +275,10 @@ select {
   border-radius: 5px;
 }
 
+option {
+  color: #000;
+}
+
 #tab {
   border-radius: 5px;
   outline: 1px solid var(--primary-color);
@@ -284,4 +289,12 @@ select {
 
 #tab img {
   border-radius: 5px;
+}
+
+#pxysearch {
+  outline: 1px solid var(--primary-color);
+  background: none;
+  border: none;
+  border-radius: 5px;
+  width: 210px;
 }

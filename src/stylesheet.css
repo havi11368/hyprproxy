@@ -200,15 +200,24 @@ button {
 
 @keyframes slideUp {
   0% {
-    margin-top: 70px
+    margin-top: 70px;
+    width: 0px;
+  }
+
+  10% {
+    margin-top: 70px;
+    width: 0px;
   }
 
   50% {
+    margin-top: 70px;
+    width: 23px;
+  }
+  75% {
     margin-top: 0px;
     margin-bottom: 0px;
   }
-
-  70% {
+  85% {
     margin-top: 0px;
     margin-bottom: 20px;
   }
@@ -218,7 +227,7 @@ button {
   }
 }
 
-@keyframes slideDown {
+@keyframes slideDown { /* literally slide up but reverse */
   0% {
     margin-top: 0px;
     margin-bottom: 0px;

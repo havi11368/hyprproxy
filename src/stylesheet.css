@@ -139,6 +139,14 @@ button {
   }
 }
 
+@keyframes byeBye {
+  100% {
+    transform: scale(.3) rotate(45deg);
+    opacity: 0;
+    width: 0;
+  }
+}
+
 @keyframes sizeIn {
   0% {
     transform: scale(.6);
@@ -209,6 +217,30 @@ button {
     margin-bottom: 0px;
   }
 }
+
+@keyframes slideDown {
+  0% {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  15% {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+
+  25% {
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+  50% {
+    margin-top: 70px;
+  }
+  100% {
+    margin-top: 70px;
+  }
+}
+
 
 #info {
   display: flex;

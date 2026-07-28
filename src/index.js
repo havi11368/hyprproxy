@@ -36,8 +36,12 @@ function addWindowTab() {
     });
     })
     windowTab.querySelector("#closeButton").addEventListener("click", (e) => {
-      windowTab.remove();
-      tab.remove();
+      windowTab.style.animation = ".4s ease-out 0s 1 byeBye";
+      tab.style.animation = ".4s linear 0s 1 slideDown";
+      setTimeout(() => {
+        windowTab.remove();
+        tab.remove();
+      }, 395) // this number is to prevent the animation from going faster than the timeout... yet it still happens, just less.
     })
     windowTab.addEventListener("click", (event) => {
       document.querySelectorAll("#windowTab").setAttribute('active', 'false')
@@ -60,7 +64,7 @@ function openSettings() {
 function startTime() {
   const today = new Date();
   document.getElementById('time').innerHTML =  today.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true})
-  setTimeout(startTime, 5000);
+  setTimeout(startTime, 5000); // ohh so that's how you do loops in js
 }
 
 function checkTime(i) {

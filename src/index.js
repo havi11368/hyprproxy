@@ -2,6 +2,7 @@ function addWindowTab() {
     const windowTab = document.createElement("div");
     windowTab.id = "windowTab"
     windowTab.tabIndex = -1
+    windowTab.setAttribute('active', 'true')
     windowTab.innerHTML = `<div class="windowHeader justified">
     <div class="infoHolder">
     <img id="icon" src="/images/icon.png"></img>
@@ -11,7 +12,6 @@ function addWindowTab() {
     </div>
     <iframe class="frame" id="tabFrame" src="./search.html"></iframe>`
     document.querySelector("#windowContainer").appendChild(windowTab);
-
     const tab = document.createElement("div");
     tab.id = "tab"
     tab.innerHTML = `<img id="icon" src="/images/icon.png"></img>`
@@ -38,6 +38,10 @@ function addWindowTab() {
     windowTab.querySelector("#closeButton").addEventListener("click", (e) => {
       windowTab.remove();
       tab.remove();
+    })
+    windowTab.addEventListener("click", (event) => {
+      document.querySelectorAll("#windowTab").setAttribute('active', 'false')
+      windowTab.setAttribute('active', 'true')
     })
 }
 

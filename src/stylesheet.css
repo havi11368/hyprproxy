@@ -237,6 +237,10 @@ button {
     margin-top: 70px;
     width: 23px;
   }
+  90% {
+    margin-top: 70px;
+    width: 0px;
+  }
   100% {
     margin-top: 70px;
     width: 0px;

@@ -27,6 +27,7 @@ function addWindowTab() {
       windowTab.style.animation = ".4s ease-out 0s 1 slideIn";
       tab.style.animation = ".4s linear 0s 1 slideUp";
     }
+
     windowTab.querySelector("#tabFrame").addEventListener("load", (e) => {
       windowTab.querySelector("#title").innerHTML = windowTab.querySelector("#tabFrame").contentDocument.title
       windowTab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
@@ -35,6 +36,7 @@ function addWindowTab() {
         windowTab.focus();
     });
     })
+
     windowTab.querySelector("#closeButton").addEventListener("click", (e) => {
       windowTab.style.animation = ".4s ease-out 0s 1 byeBye";
       tab.style.animation = ".4s linear 0s 1 slideDown";
@@ -43,6 +45,15 @@ function addWindowTab() {
         tab.remove();
       }, 395) // this number is to prevent the animation from going faster than the timeout... yet it still happens, just less.
     })
+
+    tab.addEventListener("click", (e) => {
+      if (window.getComputedStyle(windowTab).display === "block") {
+        windowTab.style.display = "none"
+      } else if (window.getComputedStyle(windowTab).display === "none") {
+        windowTab.style.display = "block"
+      }
+    }) // quite simple
+    
     windowTab.addEventListener("click", (event) => {
       document.querySelectorAll("#windowTab").setAttribute('active', 'false')
       windowTab.setAttribute('active', 'true')

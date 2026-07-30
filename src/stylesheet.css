@@ -114,6 +114,14 @@ button {
   outline: 2px solid var(--primary-color);
 }
 
+#windowTab[active="true"] {
+  outline: 2px solid var(--primary-color);
+}
+
+#windowTab[active="false"] {
+  outline: 2px solid #868686;
+}
+
 .frame {
   width: 100%;
   height: calc(100% - 25px);

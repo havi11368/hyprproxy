@@ -23,12 +23,15 @@ function addWindowTab() {
       document.getElementById("greeting").style.zIndex = "-1";
       windowTab.style.animation = ".4s linear 0s 1 sizeIn";
       tab.style.animation = ".4s linear 0s 1 slideUp";
+      windowTab.setAttribute('active', 'true')
     } else {
       windowTab.style.animation = ".4s ease-out 0s 1 slideIn";
       tab.style.animation = ".4s linear 0s 1 slideUp";
+      windowTab.setAttribute('active', 'false')
     }
 
     windowTab.querySelector("#tabFrame").addEventListener("load", (e) => {
+      // document.querySelector("#urlBox").value = windowTab.querySelector("#tabFrame").src
       windowTab.querySelector("#title").innerHTML = windowTab.querySelector("#tabFrame").contentDocument.title
       windowTab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
       tab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
@@ -55,7 +58,15 @@ function addWindowTab() {
     }) // quite simple
     
     windowTab.addEventListener("click", (event) => {
-      document.querySelectorAll("#windowTab").setAttribute('active', 'false')
+      document.querySelectorAll("#windowTab").forEach(element => {
+        element.setAttribute('active', 'false')
+      })
+      windowTab.setAttribute('active', 'true')
+    })
+    windowTab.querySelector("#tabFrame").contentWindow.addEventListener("click", (event) => {
+      document.querySelectorAll("#windowTab").forEach(element => {
+        element.setAttribute('active', 'false')
+      })
       windowTab.setAttribute('active', 'true')
     })
 }

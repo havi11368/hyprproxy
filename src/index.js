@@ -5,10 +5,13 @@ function addWindowTab(url) {
     windowTab.setAttribute('active', 'true')
     windowTab.innerHTML = `<div class="windowHeader justified">
     <div class="infoHolder">
-    <img id="icon" src="/images/icon.png"></img>
-    <h3 id="title">New Window</h3>
+      <img id="icon" src="/images/icon.png"></img>
+      <h3 id="title">New Window</h3>
     </div>
-    <button id="closeButton">Close</button>
+    <div class="rightBtns">
+      <button id="minButton">Minimize</button>
+      <button id="closeButton">Close</button>
+    </div>
     </div>
     <iframe class="frame" id="tabFrame" src="./search.html"></iframe>`
     document.querySelector("#windowContainer").appendChild(windowTab);
@@ -59,6 +62,9 @@ function addWindowTab(url) {
         windowTab.style.display = "block"
       }
     }) // quite simple
+    windowTab.querySelector("#minButton").addEventListener("click", (e) => {
+        windowTab.style.display = "none"
+    }) // same as tab button function but w/o if statement
     
     windowTab.addEventListener("click", (event) => {
       document.querySelectorAll("#windowTab").forEach(element => {

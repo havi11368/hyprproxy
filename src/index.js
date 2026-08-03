@@ -37,13 +37,16 @@ function addWindowTab(url) {
     }
 
     windowTab.querySelector("#tabFrame").addEventListener("load", (e) => {
+      windowTab.querySelector("#tabFrame").contentWindow.addEventListener("click", (event) => {
+      document.querySelectorAll("#windowTab").forEach(element => {
+        element.setAttribute('active', 'false')
+      })
+      windowTab.setAttribute('active', 'true')
+    })
       // document.querySelector("#urlBox").value = windowTab.querySelector("#tabFrame").src
       windowTab.querySelector("#title").innerHTML = windowTab.querySelector("#tabFrame").contentDocument.title
       windowTab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
       tab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
-      windowTab.querySelector("#tabFrame").contentWindow.document.addEventListener('mousedown', () => {
-        windowTab.focus();
-    });
     })
 
     windowTab.querySelector("#closeButton").addEventListener("click", (e) => {
@@ -72,12 +75,7 @@ function addWindowTab(url) {
       })
       windowTab.setAttribute('active', 'true')
     })
-    windowTab.querySelector("#tabFrame").contentWindow.addEventListener("click", (event) => {
-      document.querySelectorAll("#windowTab").forEach(element => {
-        element.setAttribute('active', 'false')
       })
-      windowTab.setAttribute('active', 'true')
-    })
 
     document.querySelector("#refresh").addEventListener("click", (e) => {
       if (windowTab.getAttribute("active") === "true") {

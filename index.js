@@ -1,4 +1,4 @@
-//Modified from Ultraviolet Wiki script: https://github.com/titaniumnetwork-dev/Ultraviolet/wiki/Installing
+// Modified from Ultraviolet Wiki script: https://github.com/titaniumnetwork-dev/Ultraviolet/wiki/Installing
 import express from "express";
 import { createServer } from "node:http";
 import { scramjetPath } from "@mercuryworkshop/scramjet/path"

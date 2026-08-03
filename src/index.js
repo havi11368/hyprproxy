@@ -78,6 +78,18 @@ function addWindowTab(url) {
       })
       windowTab.setAttribute('active', 'true')
     })
+
+    document.querySelector("#refresh").addEventListener("click", (e) => {
+      if (windowTab.getAttribute("active") === "true") {
+        windowTab.querySelector("#tabFrame").contentWindow.location.reload()
+      }
+    })
+
+    document.querySelector("#fullscreen").addEventListener("click", (e) => {
+      if (windowTab.getAttribute("active") === "true") {
+        windowTab.querySelector("#tabFrame").requestFullscreen()
+      }
+    })
 }
 
 function openSettings() {

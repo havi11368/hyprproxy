@@ -1,4 +1,4 @@
-function addWindowTab() {
+function addWindowTab(url) {
     const windowTab = document.createElement("div");
     windowTab.id = "windowTab"
     windowTab.tabIndex = -1
@@ -16,6 +16,9 @@ function addWindowTab() {
     tab.id = "tab"
     tab.innerHTML = `<img id="icon" src="/images/icon.png"></img>`
     document.querySelector("#apps").appendChild(tab);
+    if (url) {
+      windowTab.querySelector("#tabFrame").src = sjEncode(url)
+    }
 
     if (window.getComputedStyle(document.getElementById("greeting")).opacity === "1") {
       document.getElementById("greeting").style.animation = ".4s linear 0s 1 sizeOut";

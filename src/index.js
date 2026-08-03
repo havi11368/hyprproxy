@@ -75,7 +75,6 @@ function addWindowTab(url) {
       })
       windowTab.setAttribute('active', 'true')
     })
-      })
 
     document.querySelector("#refresh").addEventListener("click", (e) => {
       if (windowTab.getAttribute("active") === "true") {

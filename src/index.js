@@ -123,3 +123,14 @@ function checkTime(i) {
 }
 
 startTime();
+
+// thank you @ohonbob on discord for allowing me to use this piece of code (also used in the addWindowTab function now)
+
+window.addEventListener('keydown', function(e) {
+  if (e.key === 't' && (e.ctrlKey || e.metaKey || e.altKey)) {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('custom shit');
+    addWindowTab()
+  }
+});

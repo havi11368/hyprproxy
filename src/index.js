@@ -17,7 +17,13 @@ function addWindowTab(url) {
     document.querySelector("#windowContainer").appendChild(windowTab);
     const tab = document.createElement("div");
     tab.id = "tab"
-    tab.innerHTML = `<img id="icon" src="/images/icon.png"></img>`
+    tab.innerHTML = `<div class="infoHolder">
+    <img id="icon" src="/images/icon.png"></img>
+    <h3 id="title">New Window</h3>
+    </div>
+    <div class="rightBtns">
+      <button id="closeButton">Close</button>
+    </div>`
     document.querySelector("#apps").appendChild(tab);
     if (url) {
       windowTab.querySelector("#tabFrame").src = sjEncode(url)
@@ -85,6 +91,7 @@ function addWindowTab(url) {
         document.querySelector("#urlBox").value = ""
       }
       windowTab.querySelector("#title").innerHTML = windowTab.querySelector("#tabFrame").contentDocument.title
+      tab.querySelector("#title").innerHTML = windowTab.querySelector("#tabFrame").contentDocument.title
       windowTab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
       tab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
     })

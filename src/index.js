@@ -35,6 +35,9 @@ function addWindowTab(url) {
         tab.remove();
       }, 395) // this number is to prevent the animation from going faster than the timeout... yet it still happens, just less.
     }
+    function goTo(url) {
+      windowTab.querySelector("#tabFrame").contentWindow.location.href = sjEncode(url)
+    }
 
     if (window.getComputedStyle(document.getElementById("greeting")).opacity === "1") {
       document.getElementById("greeting").style.animation = ".4s linear 0s 1 sizeOut";
@@ -138,6 +141,21 @@ function addWindowTab(url) {
         }
         }
       });
+    document.querySelector("#urlBox").addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('custom shit');
+        if (windowTab.getAttribute("active") === "true") {
+          goTo(document.querySelector("#urlBox").value)
+        }
+        }
+      });
+      document.querySelector("#enter").addEventListener("click", (e) => {
+      if (windowTab.getAttribute("active") === "true") {
+        goTo(document.querySelector("#urlBox").value)
+      }
+    })
 }
 
 function openSettings() {

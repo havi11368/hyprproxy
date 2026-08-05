@@ -27,3 +27,4 @@ async function setTransport(transportsel) {
 setTransport("epoxy")
 
 const sjEncode = scramjet.encodeUrl.bind(scramjet);
+const sjDecode = scramjet.decodeUrl.bind(scramjet);

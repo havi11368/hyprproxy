@@ -53,6 +53,9 @@ function addWindowTab(url) {
         element.setAttribute('active', 'false')
       })
       windowTab.setAttribute('active', 'true')
+      if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
+        document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href)
+      }
     })
     windowTab.querySelector("#tabFrame").contentWindow.addEventListener('keydown', function(e) {
     if (e.key === 't' && (e.ctrlKey || e.metaKey || e.altKey)) {
@@ -70,7 +73,10 @@ function addWindowTab(url) {
         closeWindowTab()
         }
       });
-      // document.querySelector("#urlBox").value = windowTab.querySelector("#tabFrame").src
+      if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
+        console.log(sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href))
+        document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href)
+      }
       windowTab.querySelector("#title").innerHTML = windowTab.querySelector("#tabFrame").contentDocument.title
       windowTab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
       tab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
@@ -96,6 +102,9 @@ function addWindowTab(url) {
         element.setAttribute('active', 'false')
       })
       windowTab.setAttribute('active', 'true')
+      if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
+        document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href)
+      }
     })
 
     document.querySelector("#refresh").addEventListener("click", (e) => {

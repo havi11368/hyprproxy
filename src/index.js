@@ -22,6 +22,19 @@ function addWindowTab(url) {
     if (url) {
       windowTab.querySelector("#tabFrame").src = sjEncode(url)
     }
+    document.querySelectorAll("#windowTab").forEach(element => {
+        element.setAttribute('active', 'false')
+      })
+      windowTab.setAttribute('active', 'true')
+
+    function closeWindowTab() {
+      windowTab.style.animation = ".4s ease-out 0s 1 byeBye";
+      tab.style.animation = ".4s linear 0s 1 slideDown";
+      setTimeout(() => {
+        windowTab.remove();
+        tab.remove();
+      }, 395) // this number is to prevent the animation from going faster than the timeout... yet it still happens, just less.
+    }
 
     if (window.getComputedStyle(document.getElementById("greeting")).opacity === "1") {
       document.getElementById("greeting").style.animation = ".4s linear 0s 1 sizeOut";
@@ -29,11 +42,9 @@ function addWindowTab(url) {
       document.getElementById("greeting").style.zIndex = "-1";
       windowTab.style.animation = ".4s linear 0s 1 sizeIn";
       tab.style.animation = ".4s linear 0s 1 slideUp";
-      windowTab.setAttribute('active', 'true')
     } else {
       windowTab.style.animation = ".4s ease-out 0s 1 slideIn";
       tab.style.animation = ".4s linear 0s 1 slideUp";
-      windowTab.setAttribute('active', 'false')
     }
 
     windowTab.querySelector("#tabFrame").addEventListener("load", (e) => {
@@ -43,6 +54,22 @@ function addWindowTab(url) {
       })
       windowTab.setAttribute('active', 'true')
     })
+    windowTab.querySelector("#tabFrame").contentWindow.addEventListener('keydown', function(e) {
+    if (e.key === 't' && (e.ctrlKey || e.metaKey || e.altKey)) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('custom shit');
+        addWindowTab()
+        }
+      });
+    windowTab.querySelector("#tabFrame").contentWindow.addEventListener('keydown', function(e) {
+    if (e.key === 'w' && (e.ctrlKey || e.metaKey || e.altKey)) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('custom shit');
+        closeWindowTab()
+        }
+      });
       // document.querySelector("#urlBox").value = windowTab.querySelector("#tabFrame").src
       windowTab.querySelector("#title").innerHTML = windowTab.querySelector("#tabFrame").contentDocument.title
       windowTab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
@@ -50,12 +77,7 @@ function addWindowTab(url) {
     })
 
     windowTab.querySelector("#closeButton").addEventListener("click", (e) => {
-      windowTab.style.animation = ".4s ease-out 0s 1 byeBye";
-      tab.style.animation = ".4s linear 0s 1 slideDown";
-      setTimeout(() => {
-        windowTab.remove();
-        tab.remove();
-      }, 395) // this number is to prevent the animation from going faster than the timeout... yet it still happens, just less.
+      closeWindowTab()
     })
 
     tab.addEventListener("click", (e) => {
@@ -97,6 +119,16 @@ function addWindowTab(url) {
         windowTab.querySelector("#tabFrame").contentWindow.history.forward()
       }
     })
+    window.addEventListener('keydown', function(e) {
+    if (e.key === 'w' && (e.ctrlKey || e.metaKey || e.altKey)) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('custom shit');
+        if (windowTab.getAttribute("active") === "true") {
+        closeWindowTab()
+        }
+        }
+      });
 }
 
 function openSettings() {

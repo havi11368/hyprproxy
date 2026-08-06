@@ -169,6 +169,13 @@ function addWindowTab(url) {
         goTo(document.querySelector("#urlBox").value)
       }
     })
+    document.querySelector("#switchView").addEventListener("click", (e) => {
+    if(document.body.getAttribute('browserView') === "2") {
+        windowTab.querySelector("#tabFrame").contentDocument.body.setAttribute('bg', 'true')
+    } else {
+        windowTab.querySelector("#tabFrame").contentDocument.body.setAttribute('bg', 'false')
+    }
+  })
 }
 
 function openSettings() {

@@ -1,5 +1,9 @@
 @import url(browserViews.css);
 
+body[bg="false"] {
+    background: none;
+}
+
 * {
     min-width: 0 !important;
     margin: 0;

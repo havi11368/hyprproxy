@@ -356,6 +356,10 @@ option {
   display: none;
 }
 
+#tab h3{
+  pointer-events: none;
+}
+
 #tab:hover {
   margin-bottom: 10px;
 }

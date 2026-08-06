@@ -29,6 +29,16 @@ body[browserView="2"] #windowTab {
     position: fixed;
     width: calc(100vw - 320px);
     height: calc(100vh - 32px);
+    display: none;
+}
+
+body[browserView="2"] #windowTab[active="true"] {
+    display: block;
+}
+
+body[browserView="2"] #windowTab[active="false"] {
+    display: none !important;
+    animation: none !important;
 }
 
 body[browserView="2"] #windowTab .windowHeader {

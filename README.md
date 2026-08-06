@@ -6,6 +6,26 @@ Please join the Discord server: [https://discord.gg/5MkFhwnYqx](https://discord.
 
 If you want to add something then please contribute and open a pull request, but **it must not be CSS-only commits and there shouldn't be AI.**
 
+## An extended description
+
+hyprproxy is a hyprland-inspired proxy site that has multitasking and can transform into a vertical-tabbed browser
+
+no ai was used
+
+to get started, open a window/tab using `ALT` + `T` or the `Add Window` button
+you can open as many windows/tabs as you want
+the window also appears at the bottom taskbar. click on the icon to minimize/maximize the window
+close the window using `ALT` + `W` or the `Close` button
+the buttons on the top bar + the omnibox correspond to the active window (the window highlighted green)
+
+want to have a vertical tabbed browser experience? click on the `Switch Browser View` to... switch your browser view to have vertical tabs
+the bottom bar transforms the vertical tabs section, and only one tab can be viewed at a time
+
+the settings menu doesn't work
+
+there are no built-in apps/shortcuts/bookmarks
+there are no built-in games
+
 ## Hosting it locally
 
 You need git, npm, and node installed

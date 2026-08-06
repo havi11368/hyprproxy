@@ -240,14 +240,26 @@ function addWindowTab(url) {
         e.stopPropagation();
         console.log('custom shit');
         if (windowTab.getAttribute("active") === "true") {
-          goTo(document.querySelector("#urlBox").value)
+          if (document.querySelector("#urlBox").value.includes("http")) {
+            goTo(document.querySelector("#urlBox").value)
+          } else if (document.querySelector("#urlBox").value.includes(".")) {
+            goTo("https://" + document.querySelector("#urlBox").value)
+          } else {
+            goTo("https://" + "google.com" + "/search?q=" + document.querySelector("#urlBox").value)
+          }
         }
         }
       });
       document.querySelector("#enter").addEventListener("click", (e) => {
-      if (windowTab.getAttribute("active") === "true") {
-        goTo(document.querySelector("#urlBox").value)
-      }
+        if (windowTab.getAttribute("active") === "true") {
+          if (document.querySelector("#urlBox").value.includes("http")) {
+            goTo(document.querySelector("#urlBox").value)
+          } else if (document.querySelector("#urlBox").value.includes(".")) {
+            goTo("https://" + document.querySelector("#urlBox").value)
+          } else {
+            goTo("https://" + "google.com" + "/search?q=" + document.querySelector("#urlBox").value)
+          }
+        }
     })
     document.querySelector("#switchView").addEventListener("click", (e) => {
     if(document.body.getAttribute('browserView') === "2") {

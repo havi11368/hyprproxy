@@ -154,9 +154,13 @@ function addWindowTab(url) {
     tab.addEventListener("click", (e) => {
       if (document.body.getAttribute('browserView') === "1") {
         if (window.getComputedStyle(windowTab).display === "block" && windowTab.getAttribute('active') === 'true') {
+          windowTab.style.animation = ".4s ease-out 0s 1 min";
+        setTimeout(() => {
           windowTab.style.display = "none"
+        }, 395);
         } else if (window.getComputedStyle(windowTab).display === "none") {
           windowTab.style.display = "block"
+          windowTab.style.animation = ".4s ease-out 0s 1 max";
         } else {
           document.querySelectorAll("#windowTab").forEach(element => {
         element.setAttribute('active', 'false')
@@ -189,11 +193,15 @@ function addWindowTab(url) {
     }
     }) // quite simple
     windowTab.querySelector("#minButton").addEventListener("click", (e) => {
-        windowTab.style.display = "none"
+        windowTab.style.animation = ".4s ease-out 0s 1 min";
+        setTimeout(() => {
+          windowTab.style.display = "none"
+        }, 395);
     }) // same as tab button function but w/o if statement
     
     windowTab.addEventListener("click", (event) => {
       if (windowTab.querySelector("#closeButton").matches(':hover')) return
+      if (windowTab.querySelector("#minButton").matches(':hover')) return
       document.querySelectorAll("#windowTab").forEach(element => {
         element.setAttribute('active', 'false')
       })

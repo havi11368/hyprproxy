@@ -275,6 +275,27 @@ button {
   }
 }
 
+@keyframes min {
+  100% {
+    width: 0%;
+    transform: scale(.5) perspective(300px) rotateX(40deg);
+    opacity: 0;
+  }
+}
+
+@keyframes max {
+  0% {
+    width: 0%;
+    transform: scale(.5) perspective(300px) rotateX(40deg);
+    opacity: 0;
+  }
+  100% {
+    width: 100%;
+    transform: none;
+    opacity: 1;
+  }
+}
+
 
 #info {
   display: flex;

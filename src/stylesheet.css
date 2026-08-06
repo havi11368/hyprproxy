@@ -352,6 +352,14 @@ option {
   justify-content:space-between !important;
 }
 
+#tab[active="true"] {
+  outline: 1px solid var(--primary-color);
+}
+
+#tab[active="false"] {
+  outline: 1px solid #868686;
+}
+
 #tab h3, #tab .rightBtns {
   display: none;
 }

@@ -24,6 +24,7 @@ function addWindowTab(url) {
     <div class="rightBtns">
       <button id="closeButton">Close</button>
     </div>`
+    tab.setAttribute('active', 'true')
     document.querySelector("#apps").appendChild(tab);
     if (url) {
       windowTab.querySelector("#tabFrame").src = sjEncode(url)
@@ -31,7 +32,11 @@ function addWindowTab(url) {
     document.querySelectorAll("#windowTab").forEach(element => {
         element.setAttribute('active', 'false')
       })
+    document.querySelectorAll("#tab").forEach(element => {
+      element.setAttribute('active', 'false')
+      })
       windowTab.setAttribute('active', 'true')
+      tab.setAttribute('active', 'true')
 
     function closeWindowTab() {
       windowTab.style.animation = ".4s ease-out 0s 1 byeBye";
@@ -64,7 +69,11 @@ function addWindowTab(url) {
       document.querySelectorAll("#windowTab").forEach(element => {
         element.setAttribute('active', 'false')
       })
+    document.querySelectorAll("#tab").forEach(element => {
+      element.setAttribute('active', 'false')
+      })
       windowTab.setAttribute('active', 'true')
+      tab.setAttribute('active', 'true')
       if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
         document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href)
       } else {
@@ -115,9 +124,13 @@ function addWindowTab(url) {
         }
     } else if (document.body.getAttribute('browserView') === "2") {
           document.querySelectorAll("#windowTab").forEach(element => {
-          element.setAttribute('active', 'false')
-          })
-          windowTab.setAttribute('active', 'true')
+        element.setAttribute('active', 'false')
+      })
+    document.querySelectorAll("#tab").forEach(element => {
+      element.setAttribute('active', 'false')
+      })
+      windowTab.setAttribute('active', 'true')
+      tab.setAttribute('active', 'true')
           if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
             document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href)
           } else {
@@ -133,7 +146,11 @@ function addWindowTab(url) {
       document.querySelectorAll("#windowTab").forEach(element => {
         element.setAttribute('active', 'false')
       })
+    document.querySelectorAll("#tab").forEach(element => {
+      element.setAttribute('active', 'false')
+      })
       windowTab.setAttribute('active', 'true')
+      tab.setAttribute('active', 'true')
       if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
         document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href)
       } else {

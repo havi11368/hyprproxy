@@ -34,6 +34,7 @@ body[browserView="2"] #windowTab {
 
 body[browserView="2"] #windowTab[active="true"] {
     display: block;
+    animation: none !important;
 }
 
 body[browserView="2"] #windowTab[active="false"] {

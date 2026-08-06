@@ -27,7 +27,13 @@ function addWindowTab(url) {
     tab.setAttribute('active', 'true')
     document.querySelector("#apps").appendChild(tab);
     if (url) {
-      windowTab.querySelector("#tabFrame").src = sjEncode(url)
+      if (url.includes("://")) {
+            windowTab.querySelector("#tabFrame").src = sjEncode(url)
+          } else if (url.includes(".")) {
+            windowTab.querySelector("#tabFrame").src = sjEncode("https://" + url)
+          } else {
+            windowTab.querySelector("#tabFrame").src = sjEncode("https://" + "google.com" + "/search?q=" + url)
+          }
     }
     document.querySelectorAll("#windowTab").forEach(element => {
         element.setAttribute('active', 'false')
@@ -240,7 +246,7 @@ function addWindowTab(url) {
         e.stopPropagation();
         console.log('custom shit');
         if (windowTab.getAttribute("active") === "true") {
-          if (document.querySelector("#urlBox").value.includes("http")) {
+          if (document.querySelector("#urlBox").value.includes("://")) {
             goTo(document.querySelector("#urlBox").value)
           } else if (document.querySelector("#urlBox").value.includes(".")) {
             goTo("https://" + document.querySelector("#urlBox").value)
@@ -252,7 +258,7 @@ function addWindowTab(url) {
       });
       document.querySelector("#enter").addEventListener("click", (e) => {
         if (windowTab.getAttribute("active") === "true") {
-          if (document.querySelector("#urlBox").value.includes("http")) {
+          if (document.querySelector("#urlBox").value.includes("://")) {
             goTo(document.querySelector("#urlBox").value)
           } else if (document.querySelector("#urlBox").value.includes(".")) {
             goTo("https://" + document.querySelector("#urlBox").value)

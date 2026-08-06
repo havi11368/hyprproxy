@@ -345,3 +345,11 @@ window.addEventListener('keydown', function(e) {
     switchView()
   }
 });
+
+const params = new URLSearchParams(window.location.search)
+
+setTimeout(() => {
+  if (params.get("q")) {
+  addWindowTab(params.get("q"))
+  }
+}, 100);

@@ -206,3 +206,11 @@ window.addEventListener('keydown', function(e) {
     addWindowTab()
   }
 });
+
+function switchView() {
+  if(document.body.getAttribute('browserView') === "1") {
+    document.body.setAttribute('browserView', '2')
+  } else {
+    document.body.setAttribute('browserView', '1')
+  }
+} // honestly though this would be the most complicated part. the real part is in the css.

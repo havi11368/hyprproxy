@@ -29,3 +29,4 @@ npm start
 
 * `ALT` + `T` = Open a new window/tab
 * `ALT` + `W` = Close the active window/tab
+* `ALT` + `Z` = Switch the browser view

@@ -273,3 +273,12 @@ function switchView() {
     document.body.setAttribute('browserView', '1')
   }
 } // honestly though this would be the most complicated part. the real part is in the css.
+
+window.addEventListener('keydown', function(e) {
+  if (e.key === 'z' && (e.ctrlKey || e.metaKey || e.altKey)) {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('custom shit');
+    switchView()
+  }
+});

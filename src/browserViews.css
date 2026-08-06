@@ -1,0 +1,40 @@
+body[browserView="2"] #tab {
+    width: 300px;
+    margin: 5px;
+}
+
+body[browserView="2"] #tab h3, body[browserView="2"] #tab .rightBtns {
+  display: block;
+}
+
+body[browserView="2"] #bottomBar {
+    height: calc(100vh - 23px);
+    width: 310px;
+    display: block;
+    justify-content: none !important;
+}
+
+body[browserView="2"] #apps {
+  justify-self: none;
+  display: block;
+}
+
+body[browserView="2"] #windowContainers, body[browserView="2"] #windowContainer {
+    width: calc(100vw - 310px);
+    right: 0px;
+    position: fixed;
+}
+
+body[browserView="2"] #windowTab {
+    position: fixed;
+    width: calc(100vw - 320px);
+    height: calc(100vh - 32px);
+}
+
+body[browserView="2"] #windowTab .windowHeader {
+    display: none;
+}
+
+body[browserView="2"] #windowTab .frame {
+    height: 100%;
+}

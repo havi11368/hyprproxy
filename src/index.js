@@ -57,6 +57,9 @@ function addWindowTab(url) {
     }
 
     windowTab.querySelector("#tabFrame").addEventListener("load", (e) => {
+      if(document.body.getAttribute('browserView') === "2") {
+        windowTab.querySelector("#tabFrame").contentDocument.body.setAttribute('bg', 'true')
+    }
       windowTab.querySelector("#tabFrame").contentWindow.addEventListener("click", (event) => {
       document.querySelectorAll("#windowTab").forEach(element => {
         element.setAttribute('active', 'false')
@@ -99,13 +102,18 @@ function addWindowTab(url) {
     windowTab.querySelector("#closeButton").addEventListener("click", (e) => {
       closeWindowTab()
     })
+    tab.querySelector("#closeButton").addEventListener("click", (e) => {
+      closeWindowTab()
+    })
 
     tab.addEventListener("click", (e) => {
-      if (window.getComputedStyle(windowTab).display === "block") {
-        windowTab.style.display = "none"
-      } else if (window.getComputedStyle(windowTab).display === "none") {
-        windowTab.style.display = "block"
-      }
+      if (body.getAttribute(browserView) === "1") {
+        if (window.getComputedStyle(windowTab).display === "block") {
+          windowTab.style.display = "none"
+        } else if (window.getComputedStyle(windowTab).display === "none") {
+          windowTab.style.display = "block"
+        }
+    }
     }) // quite simple
     windowTab.querySelector("#minButton").addEventListener("click", (e) => {
         windowTab.style.display = "none"
@@ -217,6 +225,9 @@ window.addEventListener('keydown', function(e) {
 function switchView() {
   if(document.body.getAttribute('browserView') === "1") {
     document.body.setAttribute('browserView', '2')
+    document.querySelectorAll("#windowTab").forEach(element => {
+        element.style.display = "block"
+    })
   } else {
     document.body.setAttribute('browserView', '1')
   }

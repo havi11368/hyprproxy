@@ -147,10 +147,24 @@ function addWindowTab(url) {
 
     tab.addEventListener("click", (e) => {
       if (document.body.getAttribute('browserView') === "1") {
-        if (window.getComputedStyle(windowTab).display === "block") {
+        if (window.getComputedStyle(windowTab).display === "block" && windowTab.getAttribute('active') === 'true') {
           windowTab.style.display = "none"
         } else if (window.getComputedStyle(windowTab).display === "none") {
           windowTab.style.display = "block"
+        } else {
+          document.querySelectorAll("#windowTab").forEach(element => {
+        element.setAttribute('active', 'false')
+      })
+    document.querySelectorAll("#tab").forEach(element => {
+      element.setAttribute('active', 'false')
+      })
+      windowTab.setAttribute('active', 'true')
+      tab.setAttribute('active', 'true')
+          if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
+            document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href)
+          } else {
+            document.querySelector("#urlBox").value = ""
+      }
         }
     } else if (document.body.getAttribute('browserView') === "2") {
           document.querySelectorAll("#windowTab").forEach(element => {

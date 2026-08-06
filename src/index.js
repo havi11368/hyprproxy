@@ -173,6 +173,7 @@ function addWindowTab(url) {
     }) // same as tab button function but w/o if statement
     
     windowTab.addEventListener("click", (event) => {
+      if (windowTab.querySelector("#closeButton").matches(':hover')) return
       document.querySelectorAll("#windowTab").forEach(element => {
         element.setAttribute('active', 'false')
       })

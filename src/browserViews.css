@@ -66,8 +66,12 @@ body[browserView="2"] #windowTab .frame {
         opacity: 1;
         margin-top: 0px;
     }
-    100% {
+    80% {
         opacity: 0;
         margin-top: 50px;
+    }
+    100% {
+        opacity: 0;
+        margin-top: 0px;
     }
 }

@@ -45,6 +45,22 @@ function addWindowTab(url) {
       } else {
         tab.style.animation = ".4s linear 0s 1 byebyeTab";
       }
+      document.querySelectorAll("#windowTab").forEach((element, i, a) => {
+        const prev = a[i - 1];
+        console.log(prev)
+        if (element.getAttribute('active') === 'true' && a.length != 1 && i != 0) {
+        prev.setAttribute('active', 'true')
+        }
+      })
+      document.querySelectorAll("#tab").forEach((element, i, a) => {
+        const prev = a[i - 1];
+        console.log(prev)
+        if (element.getAttribute('active') === 'true' && a.length != 1 && i != 0) {
+        prev.setAttribute('active', 'true')
+        }
+      })
+      windowTab.setAttribute('active', 'false')
+      tab.setAttribute('active', 'false')
       setTimeout(() => {
         windowTab.remove();
         tab.remove();
@@ -76,7 +92,9 @@ function addWindowTab(url) {
     windowTab.querySelector("#tabFrame").addEventListener("load", (e) => {
       if(document.body.getAttribute('browserView') === "2") {
         windowTab.querySelector("#tabFrame").contentDocument.body.setAttribute('bg', 'true')
-    }
+      } else if(document.body.getAttribute('browserView') === "1") {
+        windowTab.querySelector("#tabFrame").contentDocument.body.setAttribute('bg', 'false')
+      }
       windowTab.querySelector("#tabFrame").contentWindow.addEventListener("click", (event) => {
       document.querySelectorAll("#windowTab").forEach(element => {
         element.setAttribute('active', 'false')
@@ -223,6 +241,18 @@ function addWindowTab(url) {
         windowTab.querySelector("#tabFrame").contentDocument.body.setAttribute('bg', 'false')
     }
   })
+  window.addEventListener('keydown', function(e) {
+  if (e.key === 'z' && (e.ctrlKey || e.metaKey || e.altKey)) {
+    e.preventDefault();
+    e.stopPropagation();
+    console.log('custom shit');
+    if(document.body.getAttribute('browserView') === "2") {
+        windowTab.querySelector("#tabFrame").contentDocument.body.setAttribute('bg', 'true')
+    } else {
+        windowTab.querySelector("#tabFrame").contentDocument.body.setAttribute('bg', 'false')
+    }
+  }
+});
 }
 
 function openSettings() {

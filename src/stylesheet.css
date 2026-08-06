@@ -4,6 +4,10 @@ body[bg="false"] {
     background: none;
 }
 
+body[bg="true"] {
+    background-image: url("/images/lqbg.png");
+}
+
 * {
     min-width: 0 !important;
     margin: 0;
@@ -51,7 +55,7 @@ p {
 }
 
 body {
-  background-image: url("/images/bg.png");
+  background-image: url("/images/lqbg.png");
   background-size: cover;
   height: 100vh;
   max-width: 100vw;

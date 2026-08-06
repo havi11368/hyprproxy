@@ -49,3 +49,25 @@ body[browserView="2"] #windowTab .windowHeader {
 body[browserView="2"] #windowTab .frame {
     height: 100%;
 }
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        margin-top: 50px;
+    }
+    100% {
+        opacity: 1;
+        margin-top: 0px;
+    }
+}
+
+@keyframes byebyeTab {
+    0% {
+        opacity: 1;
+        margin-top: 0px;
+    }
+    100% {
+        opacity: 0;
+        margin-top: 50px;
+    }
+}

@@ -40,7 +40,11 @@ function addWindowTab(url) {
 
     function closeWindowTab() {
       windowTab.style.animation = ".4s ease-out 0s 1 byeBye";
-      tab.style.animation = ".4s linear 0s 1 slideDown";
+      if(document.body.getAttribute('browserView') === "1") {
+        tab.style.animation = ".4s linear 0s 1 slideDown";
+      } else {
+        tab.style.animation = ".4s linear 0s 1 byebyeTab";
+      }
       setTimeout(() => {
         windowTab.remove();
         tab.remove();
@@ -55,10 +59,18 @@ function addWindowTab(url) {
       document.getElementById("greeting").style.opacity = "0";
       document.getElementById("greeting").style.zIndex = "-1";
       windowTab.style.animation = ".4s linear 0s 1 sizeIn";
-      tab.style.animation = ".4s linear 0s 1 slideUp";
+      if(document.body.getAttribute('browserView') === "1") {
+        tab.style.animation = ".4s linear 0s 1 slideUp";
+      } else {
+        tab.style.animation = ".4s linear 0s 1 fadeIn";
+      }
     } else {
       windowTab.style.animation = ".4s ease-out 0s 1 slideIn";
-      tab.style.animation = ".4s linear 0s 1 slideUp";
+      if(document.body.getAttribute('browserView') === "1") {
+        tab.style.animation = ".4s linear 0s 1 slideUp";
+      } else {
+        tab.style.animation = ".4s linear 0s 1 fadeIn";
+      }
     }
 
     windowTab.querySelector("#tabFrame").addEventListener("load", (e) => {
@@ -255,7 +267,9 @@ function switchView() {
     document.querySelectorAll("#windowTab").forEach(element => {
         element.style.display = "block"
     })
+    document.querySelector("#add").innerHTML = "Add Tab"
   } else {
+    document.querySelector("#add").innerHTML = "Add Window"
     document.body.setAttribute('browserView', '1')
   }
 } // honestly though this would be the most complicated part. the real part is in the css.

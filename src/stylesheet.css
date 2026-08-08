@@ -330,9 +330,18 @@ button {
   height:25px
 }
 
+.infoHolder #title {
+  overflow:hidden; 
+  white-space:nowrap; 
+  text-overflow: ellipsis;
+}
+
 #icon {
   height: 23px;
   min-width: 23px;
+  width: 23px;
+  flex-shrink: 0;
+  object-fit: contain;
 }
 
 a {

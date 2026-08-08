@@ -50,6 +50,13 @@ body[browserView="2"] #windowTab .frame {
     height: 100%;
 }
 
+body[browserView="2"] .infoHolder #title {
+    width: 230px;
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow: ellipsis;
+}
+
 @keyframes fadeIn {
     0% {
         opacity: 0;

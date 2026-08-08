@@ -1,4 +1,4 @@
-document.querySelector("pxysearch").addEventListener("keydown", function(e) {
+document.querySelector("#pxysearch").addEventListener("keydown", function(e) {
     if (e.key === "Enter") {
         if (document.querySelector("#pxysearch").value.includes("://")) {
             window.location.href = sjEncode(document.querySelector("#pxysearch").value)

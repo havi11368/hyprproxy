@@ -132,6 +132,14 @@ function addWindowTab(url) {
         closeWindowTab()
         }
       });
+    windowTab.querySelector("#tabFrame").contentWindow.addEventListener('keydown', function(e) {
+    if (e.key === 'z' && (e.ctrlKey || e.metaKey || e.altKey)) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('custom shit');
+        switchView()
+        }
+      });
       if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
         console.log(sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href))
         document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href)

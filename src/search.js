@@ -7,6 +7,5 @@ document.querySelector("#pxysearch").addEventListener("keydown", function(e) {
           } else {
             window.location.href = sjEncode("https://" + "google.com" + "/search?q=" + document.querySelector("#urlBox").value)
           }
-        window.location.href = sjEncode(document.getElementById("pxysearch").value)
     }
 })

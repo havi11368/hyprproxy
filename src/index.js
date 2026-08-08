@@ -152,6 +152,7 @@ function addWindowTab(url) {
     })
 
     tab.addEventListener("click", (e) => {
+      if (tab.querySelector("#closeButton").matches(':hover')) return
       if (document.body.getAttribute('browserView') === "1") {
         if (window.getComputedStyle(windowTab).display === "block" && windowTab.getAttribute('active') === 'true') {
           windowTab.style.animation = ".4s ease-out 0s 1 min";

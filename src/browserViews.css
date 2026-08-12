@@ -12,7 +12,13 @@ body[browserView="2"] #bottomBar {
     width: 310px;
     display: block;
     justify-content: none !important;
+    overflow-y: scroll;
+    scrollbar-width: none;
 }
+
+body[browserView="2"] #bottomBar::-webkit-scrollbar {
+    display: none;
+  }
 
 body[browserView="2"] #apps {
   justify-self: none;

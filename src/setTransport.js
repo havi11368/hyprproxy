@@ -1,5 +1,15 @@
 //Taken from UV docs + poorly documented Scramjet docs
 
+const { ScramjetController } = $scramjetLoadController();
+const scramjet = new ScramjetController({
+	files: {
+		wasm: "/scram/scramjet.wasm",
+		all: "/scram/scramjet.js",
+    sync: "/scram/scramjet.sync.js",
+	},
+});
+scramjet.init();
+
 async function setTransport(transportsel) {
 
   const connection = new BareMux.BareMuxConnection("/baremux/worker.js")

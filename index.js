@@ -16,6 +16,8 @@ import cors from 'cors';
 const server = createServer();
 const bare = createBareServer("/bare/");
 const publicPath = fileURLToPath(new URL("./src/", import.meta.url));
+const contPath = fileURLToPath(new URL('./node_modules/@mercuryworkshop/scramjet-controller/dist', import.meta.url));
+const utilsPath = fileURLToPath(new URL('./node_modules/@mercuryworkshop/scramjet-utils/dist', import.meta.url));
 const app = express(server);
 // Load our publicPath first and prioritize it over UV.
 app.use(express.json());

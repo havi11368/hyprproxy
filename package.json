@@ -13,7 +13,7 @@
     "@mercuryworkshop/bare-mux": "2.1.7",
     "@mercuryworkshop/epoxy-transport": "2.1.27",
     "@mercuryworkshop/libcurl-transport": "1.4.0",
-    "@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-2.0.67-alpha.1.tgz",
+    "@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-2.0.67-alpha.2.tgz",
     "@tomphttp/bare-server-node": "2.0.5",
     "cors": "2.8.5",
     "express": "4.19.2",

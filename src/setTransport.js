@@ -1,16 +1,5 @@
 //Taken from UV docs + poorly documented Scramjet docs
 
-
-const { Controller } = $scramjetController;
-const scramjet = new Controller({
-	files: {
-		wasm: "/scram/scramjet.wasm",
-		all: "/scram/scramjet.js",
-    sync: "/scram/scramjet.sync.js",
-	},
-});
-scramjet.init();
-
 async function setTransport(transportsel) {
 
   const connection = new BareMux.BareMuxConnection("/baremux/worker.js")
@@ -25,7 +14,31 @@ async function setTransport(transportsel) {
     await connection.setTransport("/bareasmodule/index.mjs", [ bareUrl ]);
   }
 }
-setTransport("epoxy")
+
+const transport = setTransport("epoxy")
+
+const { Controller } = $scramjetController;
+const { defaultConfig } = $scramjet;
+const serviceworker = navigator.serviceWorker.controller
+const scramjet = new Controller({
+  serviceworker,
+  transport,
+	config: {
+		scramjetPath: "/scram/scramjet.js",
+    wasmPath: "/scram/scramjet.wasm",
+    injectPath: "/cont/controller.inject.js",
+	},
+  scramjetConfig: {
+          ...defaultConfig,
+          flags: {
+            ...defaultConfig.flags,
+            allowFailedIntercepts: true,
+            allowInvalidJs: true,
+          },
+        },
+  
+});
+scramjet.init;
 
 const sjEncode = scramjet.encodeUrl.bind(scramjet);
 const sjDecode = scramjet.decodeUrl.bind(scramjet);

@@ -38,7 +38,6 @@ const scramjet = new Controller({
         },
   
 });
-scramjet.init;
 
-const sjEncode = scramjet.encodeUrl.bind(scramjet);
-const sjDecode = scramjet.decodeUrl.bind(scramjet);
+const sjEncode = scramjet.rewriteUrl.bind(scramjet);
+const sjDecode = scramjet.unrewriteUrl.bind(scramjet);

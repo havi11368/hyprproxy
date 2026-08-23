@@ -28,11 +28,11 @@ function addWindowTab(url) {
     document.querySelector("#apps").appendChild(tab);
     if (url) {
       if (url.includes("://")) {
-            windowTab.querySelector("#tabFrame").src = sjEncode(url)
+            goTo(url)
           } else if (url.includes(".")) {
-            windowTab.querySelector("#tabFrame").src = sjEncode("https://" + url)
+            goTo("https://" + url)
           } else {
-            windowTab.querySelector("#tabFrame").src = sjEncode("https://" + "google.com" + "/search?q=" + url)
+            goTo("https://" + "google.com" + "/search?q=" + url)
           }
     }
     document.querySelectorAll("#windowTab").forEach(element => {
@@ -72,8 +72,9 @@ function addWindowTab(url) {
         tab.remove();
       }, 395) // this number is to prevent the animation from going faster than the timeout... yet it still happens, just less.
     }
+    const sjframe = scramjet.createFrame(windowTab.querySelector("#tabFrame"))
     function goTo(url) {
-      windowTab.querySelector("#tabFrame").contentWindow.location.href = sjEncode(url)
+      sjframe.go(url)
     }
 
     if (window.getComputedStyle(document.getElementById("greeting")).opacity === "1") {

@@ -38,6 +38,3 @@ const scramjet = new Controller({
         },
   
 });
-
-const sjEncode = scramjet.rewriteUrl.bind(scramjet);
-const sjDecode = scramjet.unrewriteUrl.bind(scramjet);

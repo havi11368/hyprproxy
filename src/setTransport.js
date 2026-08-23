@@ -1,7 +1,8 @@
 //Taken from UV docs + poorly documented Scramjet docs
 
-const { ScramjetController } = $scramjetController();
-const scramjet = new ScramjetController({
+
+const { Controller } = $scramjetController;
+const scramjet = new Controller({
 	files: {
 		wasm: "/scram/scramjet.wasm",
 		all: "/scram/scramjet.js",

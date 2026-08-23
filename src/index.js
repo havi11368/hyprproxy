@@ -97,6 +97,24 @@ function addWindowTab(url) {
     }
 
     windowTab.querySelector("#tabFrame").addEventListener("load", (e) => {
+      if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/search.html")) {
+      windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysearch").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        searchIt()
+    }
+})
+      }
+              function searchIt() {
+if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysearch").value.includes("://")) {
+            goTo(windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysearch").value)
+          } else if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysearch").value.includes(".")) {
+            goTo("https://" + windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysearch").value)
+          } else {
+            goTo("https://" + "google.com" + "/search?q=" + windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysearch").value)
+          }
+        window.location.href = sjEncode(document.getElementById("pxysearch").value)
+}
+
       if(document.body.getAttribute('browserView') === "2") {
         windowTab.querySelector("#tabFrame").contentDocument.body.setAttribute('bg', 'true')
       } else if(document.body.getAttribute('browserView') === "1") {

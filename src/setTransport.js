@@ -1,5 +1,7 @@
 //Taken from UV docs + poorly documented Scramjet docs
 
+const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
+
 async function setTransport(transportsel) {
 
   const connection = new BareMux.BareMuxConnection("/baremux/worker.js")
@@ -15,14 +17,12 @@ async function setTransport(transportsel) {
   }
 }
 
-const transport = setTransport("epoxy")
-
 const { Controller } = $scramjetController;
 const { defaultConfig } = $scramjet;
 const serviceworker = navigator.serviceWorker.controller
 const scramjet = new Controller({
   serviceworker,
-  transport,
+  transport: new EpoxyClient({ wisp: wispUrl }),
 	config: {
 		scramjetPath: "/scram/scramjet.js",
     wasmPath: "/scram/scramjet.wasm",

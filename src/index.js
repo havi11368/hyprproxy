@@ -112,7 +112,6 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
           } else {
             goTo("https://" + "google.com" + "/search?q=" + windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysearch").value)
           }
-        window.location.href = sjEncode(document.getElementById("pxysearch").value)
 }
 
       if(document.body.getAttribute('browserView') === "2") {

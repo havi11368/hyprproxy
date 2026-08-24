@@ -11,8 +11,8 @@
   "dependencies": {
     "@mercuryworkshop/bare-as-module3": "2.2.5",
     "@mercuryworkshop/bare-mux": "2.1.7",
-    "@mercuryworkshop/epoxy-transport": "2.1.27",
-    "@mercuryworkshop/libcurl-transport": "1.4.0",
+    "@mercuryworkshop/epoxy-transport": "2.1.28",
+    "@mercuryworkshop/libcurl-transport": "1.5.2",
     "@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-2.0.67-alpha.2.tgz",
     "@mercuryworkshop/scramjet-controller": "0.0.14",
     "@mercuryworkshop/scramjet-utils": "^0.0.3",
@@ -25,6 +25,8 @@
   "allowScripts": {
     "bufferutil@4.1.0": true,
     "utf-8-validate@6.0.6": true,
-    "@mercuryworkshop/scramjet@2.0.67-alpha.1": true
+    "@mercuryworkshop/scramjet@2.0.67-alpha.2": true,
+    "@mercuryworkshop/epoxy-transport": true,
+    "@mercuryworkshop/libcurl-transport": true
   }
 }

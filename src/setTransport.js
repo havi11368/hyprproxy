@@ -17,6 +17,8 @@ async function setTransport(transportsel) {
   }
 }
 
+const EpoxyClient = EpxMod.default;
+
 const { Controller } = $scramjetController;
 const { defaultConfig } = $scramjet;
 const serviceworker = navigator.serviceWorker.controller

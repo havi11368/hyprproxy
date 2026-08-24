@@ -17,9 +17,7 @@ const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + locati
   }
 }*/
 
-const EpoxyClient = EpxMod.default;
-
-let client = new EpoxyClient({ wisp: wispUrl })
+let client = new LibcurlTransport.LibcurlClient({ wisp: wispUrl })
 
 const { Controller } = $scramjetController;
 const { defaultConfig } = $scramjet;

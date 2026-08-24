@@ -2,7 +2,7 @@
 
 const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
 
-async function setTransport(transportsel) {
+/*async function setTransport(transportsel) {
 
   const connection = new BareMux.BareMuxConnection("/baremux/worker.js")
   const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
@@ -15,16 +15,16 @@ async function setTransport(transportsel) {
   } else {    
     await connection.setTransport("/bareasmodule/index.mjs", [ bareUrl ]);
   }
-}
+}*/
 
-const EpoxyClient = EpxMod.default;
+const LibcurlClient = CurlMod.default;
 
 const { Controller } = $scramjetController;
 const { defaultConfig } = $scramjet;
 const serviceworker = navigator.serviceWorker.controller
 const scramjet = new Controller({
   serviceworker,
-  transport: new EpoxyClient({ wisp: wispUrl }),
+  transport: new LibcurlClient({ wisp: wispUrl }),
 	config: {
 		scramjetPath: "/scram/scramjet.js",
     wasmPath: "/scram/scramjet.wasm",

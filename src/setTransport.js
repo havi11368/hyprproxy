@@ -17,14 +17,16 @@ const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + locati
   }
 }*/
 
-const LibcurlClient = CurlMod.default;
+const EpoxyClient = EpxMod.default;
+
+let client = new EpoxyClient({ wisp: wispUrl })
 
 const { Controller } = $scramjetController;
 const { defaultConfig } = $scramjet;
 const serviceworker = navigator.serviceWorker.controller
 const scramjet = new Controller({
   serviceworker,
-  transport: new LibcurlClient({ wisp: wispUrl }),
+  transport: client,
 	config: {
 		scramjetPath: "/scram/scramjet.js",
     wasmPath: "/scram/scramjet.wasm",

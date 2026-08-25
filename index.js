@@ -2,8 +2,6 @@
 import express from "express";
 import { createServer } from "node:http";
 import { scramjetPath } from "@mercuryworkshop/scramjet/path"
-import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
-import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { createBareServer } from '@tomphttp/bare-server-node';
 import { bareModulePath } from "@mercuryworkshop/bare-as-module3";
@@ -16,6 +14,10 @@ import cors from 'cors';
 const server = createServer();
 const bare = createBareServer("/bare/");
 const publicPath = fileURLToPath(new URL("./src/", import.meta.url));
+const epoxyPath = fileURLToPath(new URL('./node_modules/@mercuryworkshop/epoxy-transport/dist', import.meta.url));
+const libcurlPath = fileURLToPath(new URL('./node_modules/@mercuryworkshop/libcurl-transport/dist', import.meta.url));
+const contPath = fileURLToPath(new URL('./node_modules/@mercuryworkshop/scramjet-controller/dist', import.meta.url));
+const utilsPath = fileURLToPath(new URL('./node_modules/@mercuryworkshop/scramjet-utils/dist', import.meta.url));
 const app = express(server);
 // Load our publicPath first and prioritize it over UV.
 app.use(express.json());
@@ -25,6 +27,8 @@ app.use(express.static(publicPath));
 // Load vendor files last.
 // The vendor's uv.config.js won't conflict with our uv.config.js inside the publicPath directory.
 app.use("/scram/", express.static(scramjetPath));
+app.use("/cont/", express.static(contPath));
+app.use("/utils/", express.static(utilsPath));
 app.use("/baremux/", express.static(baremuxPath));
 app.use("/epoxy/", express.static(epoxyPath));
 app.use("/libcurl/", express.static(libcurlPath));

@@ -27,15 +27,6 @@ function addWindowTab(url) {
     </div>`
     tab.setAttribute('active', 'true')
     document.querySelector("#apps").appendChild(tab);
-    if (url) {
-      if (url.includes("://")) {
-            goTo(url)
-          } else if (url.includes(".")) {
-            goTo("https://" + url)
-          } else {
-            goTo("https://" + "google.com" + "/search?q=" + url)
-          }
-    }
     document.querySelectorAll("#windowTab").forEach(element => {
         element.setAttribute('active', 'false')
       })
@@ -76,6 +67,15 @@ function addWindowTab(url) {
     const sjframe = scramjet.createFrame(windowTab.querySelector("#tabFrame"), {plugins: [urlwatch]})
     function goTo(url) {
       sjframe.go(url)
+    }
+    if (url) {
+      if (url.includes("://")) {
+            goTo(url)
+          } else if (url.includes(".")) {
+            goTo("https://" + url)
+          } else {
+            goTo("https://" + "google.com" + "/search?q=" + url)
+          }
     }
 
     if (window.getComputedStyle(document.getElementById("greeting")).opacity === "1") {

@@ -388,3 +388,10 @@ setTimeout(() => {
   addWindowTab(params.get("q"))
   }
 }, 100);
+
+window.onerror = function (e) {
+  if (e && e.includes("(reading 'postMessage')")) {
+    console.warn("wow sj didn't load correctly. ok i refresh the page")
+    window.location.reload()
+  }
+}

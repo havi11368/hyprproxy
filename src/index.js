@@ -128,7 +128,7 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       })
       windowTab.setAttribute('active', 'true')
       tab.setAttribute('active', 'true')
-      if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
+      if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
         // document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
       } else {
         document.querySelector("#urlBox").value = ""
@@ -158,7 +158,7 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
         switchView()
         }
       });
-      if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
+      if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
         // console.log(sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href)) fix later
         // document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
       } else {
@@ -197,7 +197,7 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       })
       windowTab.setAttribute('active', 'true')
       tab.setAttribute('active', 'true')
-          if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
+          if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
             // document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
           } else {
             document.querySelector("#urlBox").value = ""
@@ -212,7 +212,7 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       })
       windowTab.setAttribute('active', 'true')
       tab.setAttribute('active', 'true')
-          if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
+          if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
             // document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
           } else {
             document.querySelector("#urlBox").value = ""
@@ -237,7 +237,7 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       })
       windowTab.setAttribute('active', 'true')
       tab.setAttribute('active', 'true')
-      if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/scramjet/")) {
+      if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
         // document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
       } else {
         document.querySelector("#urlBox").value = ""

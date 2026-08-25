@@ -100,11 +100,11 @@ function addWindowTab(url) {
     windowTab.querySelector("#tabFrame").addEventListener("load", (e) => {
       if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/search.html")) {
       windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysearch").addEventListener("keydown", function(e) {
-    if (e.key === "Enter") {
-        searchIt()
-    }
-})
-      }
+        windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysearch").addEventListener("keydown", function(e) {
+          if (e.key === "Enter") {
+            searchIt()
+          }
+        })
               function searchIt() {
 if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysearch").value.includes("://")) {
             goTo(windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysearch").value)

@@ -246,7 +246,7 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
 
     document.querySelector("#refresh").addEventListener("click", (e) => {
       if (windowTab.getAttribute("active") === "true") {
-        windowTab.querySelector("#tabFrame").contentWindow.location.reload()
+        sjframe.reload()
       }
     })
 
@@ -257,12 +257,12 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
     })
     document.querySelector("#back").addEventListener("click", (e) => {
       if (windowTab.getAttribute("active") === "true") {
-        windowTab.querySelector("#tabFrame").contentWindow.history.back()
+        sjframe.back()
       }
     })
     document.querySelector("#forward").addEventListener("click", (e) => {
       if (windowTab.getAttribute("active") === "true") {
-        windowTab.querySelector("#tabFrame").contentWindow.history.forward()
+        sjframe.forward()
       }
     })
     window.addEventListener('keydown', function(e) {

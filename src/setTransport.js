@@ -43,4 +43,5 @@ const scramjet = new Controller({
 
 const urlwatch = new $scramjetUtils.UrlWatcherPlugin((url) => {
       urlBox.value = url
+      console.trace(url)
     })

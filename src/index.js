@@ -1,4 +1,5 @@
 function addWindowTab(url) {
+    const urlBox = document.querySelector("#urlBox")
     const windowTab = document.createElement("div");
     windowTab.id = "windowTab"
     windowTab.tabIndex = -1
@@ -130,9 +131,9 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       windowTab.setAttribute('active', 'true')
       tab.setAttribute('active', 'true')
       if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
-        // document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
+        // urlBox.value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
       } else {
-        document.querySelector("#urlBox").value = ""
+        urlBox.value = ""
       }
     })
     windowTab.querySelector("#tabFrame").contentWindow.addEventListener('keydown', function(e) {
@@ -161,16 +162,18 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       });
       if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
         // console.log(sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href)) fix later
-        // document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
+        // urlBox.value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
       } else {
-        document.querySelector("#urlBox").value = ""
+        urlBox.value = ""
       }
       windowTab.querySelector("#title").innerHTML = windowTab.querySelector("#tabFrame").contentDocument.title
       tab.querySelector("#title").innerHTML = windowTab.querySelector("#tabFrame").contentDocument.title
       windowTab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
       tab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
     })
-
+    sjframe.plugins.push(new $scramjetUtils.UrlWatcherPlugin((url) => {
+      urlBox.value = url
+    }))
     windowTab.querySelector("#closeButton").addEventListener("click", (e) => {
       closeWindowTab()
     })
@@ -199,9 +202,9 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       windowTab.setAttribute('active', 'true')
       tab.setAttribute('active', 'true')
           if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
-            // document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
+            // urlBox.value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
           } else {
-            document.querySelector("#urlBox").value = ""
+            urlBox.value = ""
       }
         }
     } else if (document.body.getAttribute('browserView') === "2") {
@@ -214,9 +217,9 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       windowTab.setAttribute('active', 'true')
       tab.setAttribute('active', 'true')
           if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
-            // document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
+            // urlBox.value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
           } else {
-            document.querySelector("#urlBox").value = ""
+            urlBox.value = ""
       }
     }
     }) // quite simple
@@ -239,9 +242,9 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       windowTab.setAttribute('active', 'true')
       tab.setAttribute('active', 'true')
       if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
-        // document.querySelector("#urlBox").value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
+        // urlBox.value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
       } else {
-        document.querySelector("#urlBox").value = ""
+        urlBox.value = ""
       }
     })
 
@@ -276,30 +279,30 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
         }
         }
       });
-    document.querySelector("#urlBox").addEventListener('keydown', function(e) {
+    urlBox.addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
         e.preventDefault();
         e.stopPropagation();
         console.log('custom shit');
         if (windowTab.getAttribute("active") === "true") {
-          if (document.querySelector("#urlBox").value.includes("://")) {
-            goTo(document.querySelector("#urlBox").value)
-          } else if (document.querySelector("#urlBox").value.includes(".")) {
-            goTo("https://" + document.querySelector("#urlBox").value)
+          if (urlBox.value.includes("://")) {
+            goTo(urlBox.value)
+          } else if (urlBox.value.includes(".")) {
+            goTo("https://" + urlBox.value)
           } else {
-            goTo("https://" + "google.com" + "/search?q=" + document.querySelector("#urlBox").value)
+            goTo("https://" + "google.com" + "/search?q=" + urlBox.value)
           }
         }
         }
       });
       document.querySelector("#enter").addEventListener("click", (e) => {
         if (windowTab.getAttribute("active") === "true") {
-          if (document.querySelector("#urlBox").value.includes("://")) {
-            goTo(document.querySelector("#urlBox").value)
-          } else if (document.querySelector("#urlBox").value.includes(".")) {
-            goTo("https://" + document.querySelector("#urlBox").value)
+          if (urlBox.value.includes("://")) {
+            goTo(urlBox.value)
+          } else if (urlBox.value.includes(".")) {
+            goTo("https://" + urlBox.value)
           } else {
-            goTo("https://" + "google.com" + "/search?q=" + document.querySelector("#urlBox").value)
+            goTo("https://" + "google.com" + "/search?q=" + urlBox.value)
           }
         }
     })

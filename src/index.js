@@ -73,7 +73,7 @@ function addWindowTab(url) {
         tab.remove();
       }, 395) // this number is to prevent the animation from going faster than the timeout... yet it still happens, just less.
     }
-    const sjframe = scramjet.createFrame(windowTab.querySelector("#tabFrame"))
+    const sjframe = scramjet.createFrame(windowTab.querySelector("#tabFrame"), {plugins: [urlwatch]})
     window.framething = sjframe
     function goTo(url) {
       sjframe.go(url)
@@ -171,9 +171,6 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       windowTab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
       tab.querySelector("#icon").src = windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='icon']").href || windowTab.querySelector("#tabFrame").contentWindow.document.querySelector("link[rel~='shortcut icon']").href
     })
-    sjframe.plugins.push(new $scramjetUtils.UrlWatcherPlugin((url) => {
-      urlBox.value = url
-    }))
     windowTab.querySelector("#closeButton").addEventListener("click", (e) => {
       closeWindowTab()
     })

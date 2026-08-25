@@ -8,7 +8,7 @@ import { bareModulePath } from "@mercuryworkshop/bare-as-module3";
 import { fileURLToPath } from "url";
 import { join } from "node:path";
 import { hostname } from "node:os";
-import wisp from "wisp-server-node"
+import { server as wisp } from "@mercuryworkshop/wisp-js/server";
 import cors from 'cors';
 
 const server = createServer();

@@ -73,7 +73,16 @@ function addWindowTab(url) {
         tab.remove();
       }, 395) // this number is to prevent the animation from going faster than the timeout... yet it still happens, just less.
     }
+    var currenturl = null // because urlwatcher doesn't cover active WindowTabs
     const sjframe = scramjet.createFrame(windowTab.querySelector("#tabFrame"), {plugins: [urlwatch]})
+        urlBox.addEventListener("change", (e) => {
+      if (document.activeElement === urlBox || windowTab.getAttribute("active") === "false") {
+        return
+      } else {
+        currenturl = urlBox.input
+        console.log("expected" + urlBox.input + "actual" + currenturl)
+      }
+    })
     window.framething = sjframe
     function goTo(url) {
       sjframe.go(url)
@@ -131,7 +140,7 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       windowTab.setAttribute('active', 'true')
       tab.setAttribute('active', 'true')
       if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
-        // urlBox.value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
+        urlBox.value = currenturl
       } else {
         urlBox.value = ""
       }
@@ -161,8 +170,7 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
         }
       });
       if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
-        // console.log(sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href)) fix later
-        // urlBox.value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
+        // should i do return here?
       } else {
         urlBox.value = ""
       }
@@ -177,7 +185,7 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
     tab.querySelector("#closeButton").addEventListener("click", (e) => {
       closeWindowTab()
     })
-
+    
     tab.addEventListener("click", (e) => {
       if (tab.querySelector("#closeButton").matches(':hover')) return
       if (document.body.getAttribute('browserView') === "1") {
@@ -199,7 +207,7 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       windowTab.setAttribute('active', 'true')
       tab.setAttribute('active', 'true')
           if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
-            // urlBox.value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
+            urlBox.value = currenturl
           } else {
             urlBox.value = ""
       }
@@ -214,7 +222,7 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       windowTab.setAttribute('active', 'true')
       tab.setAttribute('active', 'true')
           if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
-            // urlBox.value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
+            urlBox.value = currenturl
           } else {
             urlBox.value = ""
       }
@@ -239,7 +247,7 @@ if (windowTab.querySelector("#tabFrame").contentDocument.querySelector("#pxysear
       windowTab.setAttribute('active', 'true')
       tab.setAttribute('active', 'true')
       if (windowTab.querySelector("#tabFrame").contentWindow.location.href.includes("/sj/")) {
-        // urlBox.value = sjDecode(windowTab.querySelector("#tabFrame").contentWindow.location.href) fix later
+        urlBox.value = currenturl
       } else {
         urlBox.value = ""
       }

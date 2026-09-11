@@ -2,7 +2,6 @@
 import express from "express";
 import { createServer } from "node:http";
 import { scramjetPath } from "@mercuryworkshop/scramjet/path"
-import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { createBareServer } from '@tomphttp/bare-server-node';
 import { bareModulePath } from "@mercuryworkshop/bare-as-module3";
 import { fileURLToPath } from "url";
@@ -29,7 +28,6 @@ app.use(express.static(publicPath));
 app.use("/scram/", express.static(scramjetPath));
 app.use("/cont/", express.static(contPath));
 app.use("/utils/", express.static(utilsPath));
-app.use("/baremux/", express.static(baremuxPath));
 app.use("/epoxy/", express.static(epoxyPath));
 app.use("/libcurl/", express.static(libcurlPath));
 app.use("/bareasmodule/", express.static(bareModulePath));

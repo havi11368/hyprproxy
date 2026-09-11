@@ -8,7 +8,7 @@ body[browserView="2"] #tab h3, body[browserView="2"] #tab .rightBtns {
 }
 
 body[browserView="2"] #bottomBar {
-    height: calc(100vh - 23px);
+    height: calc(100dvh - 23px);
     width: 310px;
     display: block;
     justify-content: none !important;
@@ -34,7 +34,7 @@ body[browserView="2"] #windowContainers, body[browserView="2"] #windowContainer 
 body[browserView="2"] #windowTab {
     position: fixed;
     width: calc(100vw - 320px);
-    height: calc(100vh - 32px);
+    height: calc(100dvh - 32px);
     display: none;
 }
 

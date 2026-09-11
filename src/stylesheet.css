@@ -57,9 +57,9 @@ p {
 body {
   background-image: url("/images/lqbg.png");
   background-size: cover;
-  height: 100vh;
+  height: 100dvh;
   max-width: 100vw;
-  max-height: 100vh;
+  max-height: 100dvh;
   overflow: hidden;
 }
 

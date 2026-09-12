@@ -1,3 +1,5 @@
+<img src="src/images/logo.png">
+
 # Hyprproxy
 
 A proxy site that looks similar to Hyprland

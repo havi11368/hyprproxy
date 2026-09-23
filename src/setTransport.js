@@ -27,6 +27,15 @@ const scramjet = new Controller({
 });
 
 const urlwatch = new $scramjetUtils.UrlWatcherPlugin((url) => {
+    if (document.querySelector("#urlBox")) {
       urlBox.value = url
+    }
       console.trace(url)
     })
+
+const httpcache = new $scramjetUtils.HttpCachePlugin()
+
+const catchescapedlinks = new $scramjetUtils.CatchEscapedLinksPlugin((url) => {
+  addWindowTab(url.href);
+  return new URL(location.origin + "/close.html");
+})

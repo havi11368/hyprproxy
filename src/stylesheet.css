@@ -217,6 +217,29 @@ button {
   }
 }
 
+@keyframes sizeOut2 {
+  0% {
+    left: 0%;
+	  top: 0%;
+    transform: scale(1);
+    opacity: 1;
+    width: 100%;
+    border-radius: 5px;
+    outline: 2px solid var(--primary-color);
+  }
+
+  50% {
+    outline: 3px solid var(--primary-color);
+    opacity: 0;
+    border-radius: 10px;
+  }
+
+  100% {
+    transform: scale(.6);
+    opacity: 0;
+  }
+}
+
 @keyframes slideUp {
   0% {
     margin-top: 70px;

@@ -37,13 +37,17 @@ function addWindowTab(url) {
       tab.setAttribute('active', 'true')
 
     function closeWindowTab() {
-      windowTab.style.animation = ".4s ease-out 0s 1 byeBye";
       if(document.body.getAttribute('browserView') === "1") {
         tab.style.animation = ".4s linear 0s 1 slideDown";
       } else {
         tab.style.animation = ".4s linear 0s 1 byebyeTab";
       }
       document.querySelectorAll("#windowTab").forEach((element, i, a) => {
+        if (a.length === 1) {
+          windowTab.style.animation = ".4s ease-out 0s 1 sizeOut2";
+        } else {
+          windowTab.style.animation = ".4s ease-out 0s 1 byeBye";
+        }
         const prev = a[i - 1];
         console.log(prev)
         if (element.getAttribute('active') === 'true' && a.length != 1 && i != 0) {

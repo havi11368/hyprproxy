@@ -89,7 +89,13 @@ function addWindowTab(url) {
         tab.style.animation = ".4s linear 0s 1 fadeIn";
       }
     } else {
-      windowTab.style.animation = ".4s ease-out 0s 1 slideIn";
+      document.querySelectorAll("#windowTab").forEach((element, i, a) => {
+        if (a.length === 1) {
+          windowTab.style.animation = ".4s linear 0s 1 sizeIn";
+        } else {
+          windowTab.style.animation = ".4s ease-out 0s 1 slideIn";
+        }
+      })
       if(document.body.getAttribute('browserView') === "1") {
         tab.style.animation = ".4s linear 0s 1 slideUp";
       } else {

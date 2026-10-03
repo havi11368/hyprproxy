@@ -1,37 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="shortcut icon" href="/images/icon.png" type="image/png"/>
-  <link rel="stylesheet" href="stylesheet.css">
-  <title>HyprProxy Demo</title>
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="/images/cardlogo.png">
-  <meta property="og:image" content="/images/cardlogo.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="theme-color" content="#00c2e5">
-  <meta name="description" content="A proxy site that looks similar to Hyprland. HyprProxy is a hyprland-inspired proxy site that has multitasking and can transform into a vertical-tabbed browser. It uses the latest Scramjet alpha.">
-  <meta name="keywords" content="proxy, hyprland, unblocked, hyprproxy, school, scramjet, tiling, bypass, demo">
-	<script src="/epoxy/index.js" defer></script>
-  <script src="/libcurl/index.js" defer></script>
-  <script src="/scram/scramjet.js" defer></script>
-  <script src="/cont/controller.api.js" defer></script>
-  <script src="/utils/scramjet-utils.js" defer></script>
-	<script src="register-sw.js" defer></script>
-  <script src="setTransport.js" defer></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WS7X0WQHM2"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/images/icon.png" type="image/png" />
+    <link rel="stylesheet" href="stylesheet.css" />
+    <title>HyprProxy Demo</title>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="/images/cardlogo.png" />
+    <meta property="og:image" content="/images/cardlogo.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="theme-color" content="#00c2e5" />
+    <meta
+      name="description"
+      content="A proxy site that looks similar to Hyprland. HyprProxy is a hyprland-inspired proxy site that has multitasking and can transform into a vertical-tabbed browser. It uses the latest Scramjet alpha."
+    />
+    <meta
+      name="keywords"
+      content="proxy, hyprland, unblocked, hyprproxy, school, scramjet, tiling, bypass, demo"
+    />
+    <script src="/epoxy/index.js" defer></script>
+    <script src="/libcurl/index.js" defer></script>
+    <script src="/scram/scramjet.js" defer></script>
+    <script src="/cont/controller.api.js" defer></script>
+    <script src="/utils/scramjet-utils.js" defer></script>
+    <script src="register-sw.js" defer></script>
+    <script src="setTransport.js" defer></script>
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-WS7X0WQHM2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    gtag('config', 'G-WS7X0WQHM2');
-  </script>
-</head>
-<body browserView="1">
+      gtag("config", "G-WS7X0WQHM2");
+    </script>
+  </head>
+  <body browserView="1">
     <div id="tabBar" class="justified">
       <div id="topButtonContainer">
         <button id="add" onclick="addWindowTab()">Add Window</button>
@@ -41,40 +52,50 @@
         <button id="fullscreen">Fullscreen</button>
       </div>
       <div id="omnibox">
-        <input id="urlBox" type="url" placeholder="Search Google or type a URL"></input> <!-- yes, "a URL" is correct grammar.-->
+        <input
+          id="urlBox"
+          type="url"
+          placeholder="Search Google or type a URL"
+        />
+        <!-- yes, "a URL" is correct grammar.-->
         <button id="enter">Enter</button>
       </div>
       <div id="info">
-        <button id="switchView" onclick="switchView()">Switch Browser View</button>
-        <button style="display:none" onclick="openSettings()">Settings</button>
+        <button id="switchView" onclick="switchView()">
+          Switch Browser View
+        </button>
+        <button style="display: none" onclick="openSettings()">Settings</button>
         <h3 id="time">Loading...</h3>
       </div>
     </div>
     <div id="windowContainers">
-    <div id="windowContainer">
-    </div>
+      <div id="windowContainer"></div>
     </div>
     <div id="bottomBar" class="justified">
       <div id="apps" class="justified"></div>
     </div>
-    <div id="greeting" class="centered container" style=" display: block;">
-      <h2 style="font-weight: 700;">Hey There</h2>
-      <p>Open a window using either the "Add Window" button on the top bar or with "ALT + T", and then search something to get started. This is a demo so only basic features are here.</p>
-      <div style="margin-top: 5px;">
+    <div id="greeting" class="centered container" style="display: block">
+      <h2 style="font-weight: 700">Hey There</h2>
+      <p>
+        Open a window using either the "Add Window" button on the top bar or
+        with "ALT + T", and then search something to get started. This is a demo
+        so only basic features are here.
+      </p>
+      <div style="margin-top: 5px">
         <a href="https://discord.gg/5MkFhwnYqx">Join Discord Server</a>
         <a href="https://github.com/havi11368/hyprproxy">Github Repository</a>
       </div>
     </div>
-    <div id="settings" class="centered container" style="display: none;">
-      <h2 style="font-weight: 700;">Settings</h2>
+    <div id="settings" class="centered container" style="display: none">
+      <h2 style="font-weight: 700">Settings</h2>
       <p>nothing in the settings menu works. it's just there to look fancy</p>
-      <h3 style="font-weight: 700;">Set Transport</h3>
+      <h3 style="font-weight: 700">Set Transport</h3>
       <select>
         <option>Epoxy Transport (Default)</option>
         <option>Curl Transport</option>
         <option>Bare Server</option>
       </select>
     </div>
-</body>
-<script src="index.js"></script>
+  </body>
+  <script src="index.js"></script>
 </html>

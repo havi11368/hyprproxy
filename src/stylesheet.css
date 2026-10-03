@@ -1,21 +1,21 @@
 @import url(browserViews.css);
 
 body[bg="false"] {
-    background: none;
+  background: none;
 }
 
 body[bg="true"] {
-    background-image: url("/images/lqbg.png");
+  background-image: url("/images/lqbg.png");
 }
 
 * {
-    min-width: 0 !important;
-    margin: 0;
-    padding: 0;
-    font-family: sans-serif;
-    font-weight: 400;
-    box-sizing: border-box;
-    color:#fff;
+  min-width: 0 !important;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  font-weight: 400;
+  box-sizing: border-box;
+  color: #fff;
 }
 
 p {
@@ -30,17 +30,16 @@ p {
 .centered {
   text-align: center;
   position: absolute;
-	left: 50%;
-	top: 50%;
-  border-width:25px;
-  border-radius:25px;
+  left: 50%;
+  top: 50%;
+  border-width: 25px;
+  border-radius: 25px;
   padding: 25px;
-  transform:
-              translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .container {
-  transition: all .4s;
+  transition: all 0.4s;
   backdrop-filter: blur(10px);
   border-radius: 5px;
   outline: 2px solid var(--secondary-color);
@@ -49,7 +48,7 @@ p {
 
 .justified {
   height: auto;
-  justify-content:center;
+  justify-content: center;
   display: flex;
   align-items: center;
 }
@@ -63,8 +62,10 @@ body {
   overflow: hidden;
 }
 
-h1, h2, h3 {
-  color:#fff;
+h1,
+h2,
+h3 {
+  color: #fff;
 }
 
 button {
@@ -78,15 +79,15 @@ button {
 }
 
 #greeting {
-    display: flex;
-    width: 500px;
-    height: 170px;
+  display: flex;
+  width: 500px;
+  height: 170px;
 }
 
 #tabBar {
   backdrop-filter: blur(10px);
   width: 100%;
-  justify-content:space-between !important;
+  justify-content: space-between !important;
 }
 
 #bottomBar {
@@ -94,7 +95,7 @@ button {
   backdrop-filter: blur(10px);
   width: 100%;
   height: 30px;
-  justify-content:center !important;
+  justify-content: center !important;
   bottom: 0px;
 }
 
@@ -114,7 +115,7 @@ button {
 }
 
 #windowTab {
-  transition: all .4s;
+  transition: all 0.4s;
   margin: 5px;
   display: block;
   width: 100%;
@@ -142,7 +143,7 @@ button {
 
 @keyframes slideIn {
   0% {
-    transform: scale(.5) perspective(300px) rotateY(-20deg);
+    transform: scale(0.5) perspective(300px) rotateY(-20deg);
     opacity: 0;
     width: 0%;
   }
@@ -160,7 +161,7 @@ button {
 
 @keyframes byeBye {
   100% {
-    transform: scale(.3) rotate(45deg);
+    transform: scale(0.3) rotate(45deg);
     opacity: 0;
     width: 0;
   }
@@ -168,7 +169,7 @@ button {
 
 @keyframes sizeIn {
   0% {
-    transform: scale(.6);
+    transform: scale(0.6);
     opacity: 0;
   }
 
@@ -180,7 +181,7 @@ button {
 
   100% {
     left: 0%;
-	  top: 0%;
+    top: 0%;
     transform: scale(1);
     opacity: 1;
     width: 100%;
@@ -198,7 +199,7 @@ button {
   50% {
     border-radius: 10px;
     outline: 3px solid var(--primary-color);
-    transform: scale(.8) translate(-62%, -62%);
+    transform: scale(0.8) translate(-62%, -62%);
     height: calc(100% - 70px);
     margin-top: -2px;
     width: calc(100% - 10px);
@@ -220,7 +221,7 @@ button {
 @keyframes sizeOut2 {
   0% {
     left: 0%;
-	  top: 0%;
+    top: 0%;
     transform: scale(1);
     opacity: 1;
     width: 100%;
@@ -235,7 +236,7 @@ button {
   }
 
   100% {
-    transform: scale(.6);
+    transform: scale(0.6);
     opacity: 0;
   }
 }
@@ -269,7 +270,8 @@ button {
   }
 }
 
-@keyframes slideDown { /* literally slide up but reverse */
+@keyframes slideDown {
+  /* literally slide up but reverse */
   0% {
     margin-top: 0px;
     margin-bottom: 0px;
@@ -301,7 +303,7 @@ button {
 @keyframes min {
   100% {
     width: 0%;
-    transform: scale(.5) perspective(300px) rotateX(40deg);
+    transform: scale(0.5) perspective(300px) rotateX(40deg);
     opacity: 0;
   }
 }
@@ -309,7 +311,7 @@ button {
 @keyframes max {
   0% {
     width: 0%;
-    transform: scale(.5) perspective(300px) rotateX(40deg);
+    transform: scale(0.5) perspective(300px) rotateX(40deg);
     opacity: 0;
   }
   100% {
@@ -318,7 +320,6 @@ button {
     opacity: 1;
   }
 }
-
 
 #info {
   display: flex;
@@ -344,18 +345,18 @@ button {
 }
 
 .windowHeader {
-  justify-content:space-between !important;
-  height:25px
+  justify-content: space-between !important;
+  height: 25px;
 }
 
 .infoHolder {
   display: flex;
-  height:25px
+  height: 25px;
 }
 
 .infoHolder #title {
-  overflow:hidden; 
-  white-space:nowrap; 
+  overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
 }
 
@@ -370,12 +371,12 @@ button {
 a {
   font-weight: 600;
   text-decoration: none;
-  transition: .4s all;
+  transition: 0.4s all;
   color: var(--primary-color);
 }
 
 a:hover {
-  transition: .4s all;
+  transition: 0.4s all;
   font-weight: 700;
   text-decoration: underline;
 }
@@ -400,13 +401,13 @@ option {
 
 #tab {
   display: flex;
-  transition: all .2s;
+  transition: all 0.2s;
   border-radius: 5px;
   outline: 1px solid var(--primary-color);
   margin: 3px;
   height: 23px;
   width: 23px;
-  justify-content:space-between !important;
+  justify-content: space-between !important;
 }
 
 #tab[active="true"] {
@@ -417,11 +418,12 @@ option {
   outline: 1px solid #868686;
 }
 
-#tab h3, #tab .rightBtns {
+#tab h3,
+#tab .rightBtns {
   display: none;
 }
 
-#tab h3{
+#tab h3 {
   pointer-events: none;
 }
 

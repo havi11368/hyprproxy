@@ -1,92 +1,94 @@
 body[browserView="2"] #tab {
-    width: 300px;
-    margin: 5px;
+  width: 300px;
+  margin: 5px;
 }
 
-body[browserView="2"] #tab h3, body[browserView="2"] #tab .rightBtns {
+body[browserView="2"] #tab h3,
+body[browserView="2"] #tab .rightBtns {
   display: block;
 }
 
 body[browserView="2"] #bottomBar {
-    height: calc(100dvh - 23px);
-    width: 310px;
-    display: block;
-    justify-content: none !important;
-    overflow-y: scroll;
-    scrollbar-width: none;
+  height: calc(100dvh - 23px);
+  width: 310px;
+  display: block;
+  justify-content: none !important;
+  overflow-y: scroll;
+  scrollbar-width: none;
 }
 
 body[browserView="2"] #bottomBar::-webkit-scrollbar {
-    display: none;
-  }
+  display: none;
+}
 
 body[browserView="2"] #apps {
   justify-self: none;
   display: block;
 }
 
-body[browserView="2"] #windowContainers, body[browserView="2"] #windowContainer {
-    width: calc(100vw - 310px);
-    right: 0px;
-    position: fixed;
+body[browserView="2"] #windowContainers,
+body[browserView="2"] #windowContainer {
+  width: calc(100vw - 310px);
+  right: 0px;
+  position: fixed;
 }
 
 body[browserView="2"] #windowTab {
-    position: fixed;
-    width: calc(100vw - 320px);
-    height: calc(100dvh - 32px);
-    display: none;
+  position: fixed;
+  width: calc(100vw - 320px);
+  height: calc(100dvh - 32px);
+  display: none;
 }
 
 body[browserView="2"] #windowTab[active="true"] {
-    display: block;
-    animation: none !important;
+  display: block;
+  animation: none !important;
 }
 
 body[browserView="2"] #windowTab[active="false"] {
-    display: none !important;
-    animation: none !important;
+  display: none !important;
+  animation: none !important;
 }
 
 body[browserView="2"] #windowTab .windowHeader {
-    display: none;
+  display: none;
 }
 
 body[browserView="2"] #windowTab .frame {
-    height: 100%;
+  height: 100%;
 }
 
 body[browserView="2"] .infoHolder #title {
-    width: 230px;
-    overflow:hidden; 
-    white-space:nowrap; 
-    text-overflow: ellipsis;
+  width: 230px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-        margin-top: 50px;
-    }
-    100% {
-        opacity: 1;
-        margin-top: 0px;
-    }
+  0% {
+    opacity: 0;
+    margin-top: 50px;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0px;
+  }
 }
 
 @keyframes byebyeTab {
-    0% {
-        opacity: 1;
-        margin-top: 0px;
-    }
-    80% {
-        height: 23px;
-        opacity: 0;
-        margin-top: 50px;
-    }
-    100% {
-        height: 0px;
-        opacity: 0;
-        margin-top: 0px;
-    }
+  0% {
+    opacity: 1;
+    margin-top: 0px;
+  }
+  80% {
+    height: 23px;
+    opacity: 0;
+    margin-top: 50px;
+  }
+  100% {
+    height: 0px;
+    opacity: 0;
+    margin-top: 0px;
+  }
 }

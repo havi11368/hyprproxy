@@ -43,13 +43,13 @@ npm start
 
 ## Stuff you can do with it
 
-* You can use `addWindowTab(url)` to inject a window/tab with a specified url as a string
-* On `src/index.html`, you can change the default view of hyprproxy by changing the body's `browserView` attribute:
-`<body browserView="1">` = multitasking view, `<body browserView="2">` = vertical tabs view
-* Add `?q=url` (replace url with your specified url) to auto-open window/tab with a specified url right when it loads
+- You can use `addWindowTab(url)` to inject a window/tab with a specified url as a string
+- On `src/index.html`, you can change the default view of hyprproxy by changing the body's `browserView` attribute:
+  `<body browserView="1">` = multitasking view, `<body browserView="2">` = vertical tabs view
+- Add `?q=url` (replace url with your specified url) to auto-open window/tab with a specified url right when it loads
 
 ## Hotkeys
 
-* `ALT` + `T` = Open a new window/tab
-* `ALT` + `W` = Close the active window/tab
-* `ALT` + `Z` = Switch the browser view
+- `ALT` + `T` = Open a new window/tab
+- `ALT` + `W` = Close the active window/tab
+- `ALT` + `Z` = Switch the browser view

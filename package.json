@@ -14,7 +14,7 @@
     "@mercuryworkshop/libcurl-transport": "2.0.5",
     "@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-2.0.67-alpha.2.tgz",
     "@mercuryworkshop/scramjet-controller": "0.0.14",
-    "@mercuryworkshop/scramjet-utils": "^0.0.3",
+    "@mercuryworkshop/scramjet-utils": "https://github.com/havi11368/scramjet/releases/download/utilsok/utils.tgz",
     "@mercuryworkshop/wisp-js": "github:mercuryworkshop/wisp-js",
     "@tomphttp/bare-server-node": "2.0.5",
     "cors": "2.8.5",

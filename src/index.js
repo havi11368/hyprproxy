@@ -77,7 +77,7 @@ function addWindowTab(url) {
     }, 395); // this number is to prevent the animation from going faster than the timeout... yet it still happens, just less.
   }
   const sjframe = scramjet.createFrame(windowTab.querySelector("#tabFrame"), {
-    plugins: [urlwatch, catchescapedlinks, httpcache],
+    plugins: [urlwatch, catchescapedlinks, httpcache, customErrorPage],
   });
   function goTo(url) {
     sjframe.go(url);

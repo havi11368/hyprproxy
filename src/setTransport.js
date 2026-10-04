@@ -42,3 +42,37 @@ const catchescapedlinks = new $scramjetUtils.CatchEscapedLinksPlugin((url) => {
   addWindowTab(url.href);
   return new URL(location.origin + "/close.html");
 });
+
+let errorPage = `<!DOCTYPE html>
+            <html>
+                <head>
+                    <meta charset="utf-8"/>
+                    <title>Scramjet</title>
+                    <link rel="stylesheet" href="/stylesheet.css"/>
+                    <style>
+                      body {
+                    padding: 10px;
+                        }
+                    textarea, img {
+                    margin: 5px;
+                    }
+                    button {
+                    margin-bottom: 5px;
+                    }
+                    </style
+                </head>
+                <body>
+                <h2>hyprproxy demo ({{ORIGIN}}) has encountered a Scramjet error!!</h2>
+                <br>
+                        <p>There was an error loading <b id="fetchedURL">{{URL}}</b></p>
+                                <textarea id="errorTrace" cols="40" rows="10" readonly>Internal Service Worker Error: {{ERROR}}</textarea>
+                            <img src="/images/proxyfail3.gif" style="border-radius: 0.6em;">
+                        </div>
+                        <br>
+                        <button id="reload" class="primary" onclick="window.location.reload()">Reload</button>
+                    </div>
+                    <p id="version-wrapper"><i>Scramjet v<span id="version">{{SCRAMJET_VERSION}}</span> (build <span id="build">{{SCRAMJET_BUILD}}</span>)</i></p>
+                </body>
+            </html>`;
+
+const customErrorPage = new $scramjetUtils.customErrorPagePlugin(errorPage);

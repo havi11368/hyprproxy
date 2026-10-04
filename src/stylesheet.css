@@ -64,8 +64,10 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+b {
   color: #fff;
+  font-weight: 700;
 }
 
 button {
@@ -446,4 +448,13 @@ option {
   border: none;
   border-radius: 5px;
   width: 210px;
+}
+
+textarea {
+  height: 270px;
+  transition: all 0.4s;
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+  outline: 2px solid var(--secondary-color);
+  background-color: #0000;
 }
